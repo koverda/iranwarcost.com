@@ -16,7 +16,7 @@ const SITE_DATA = {
       "estimate_label": "$26.38B"
     },
     {
-      "component": "US interceptor costs — Op. True Promise II + Oct–Dec 2024 theater ops",
+      "component": "US interceptor costs: Op. True Promise II + Oct–Dec 2024 theater ops",
       "source": "DoD estimates, USNI News",
       "estimate_usd": 600000000,
       "estimate_label": "~$0.6B"
@@ -143,7 +143,7 @@ const SITE_DATA = {
       "date_label": "April 20, 2024",
       "cumul_label": "TRACKER START",
       "class": "notable",
-      "title": "$95B Foreign Aid Package: $26.38B for Israel Security (H.R.8034) — tracker start date",
+      "title": "$95B Foreign Aid Package: $26.38B for Israel Security (H.R.8034): tracker start date",
       "desc": "H.R.8034 allocated $26.38B for Israel within a $95B package (Ukraine: $60.84B; Indo-Pacific: $8.12B). Funds covered Iron Dome replenishment, Foreign Military Financing, and US war reserve stock drawdowns through FY2024 and into FY2025. This signing is the tracker's start date: it represents the moment Congress formally committed the first large tranche of US resources to the Iran-Israel conflict.",
       "cost_note": "Israel allocation: $26.38B · Disbursed through FY2024; included in this tracker",
       "sources": [
@@ -233,7 +233,7 @@ const SITE_DATA = {
       "cumul_label": "~$32B",
       "class": "major",
       "title": "Operation Midnight Hammer: First direct US strikes on Iranian nuclear facilities",
-      "desc": "Seven B-2 bombers from Diego Garcia carried 14 GBU-57 Massive Ordnance Penetrators; submarines launched Tomahawks simultaneously. Targets: Fordow, Natanz, Isfahan — the first direct US military action against Iran. B-2 round-trip: ~30 flight hours at $130,000/hr. GBU-57 cost: $3.5M–$14M per bomb.",
+      "desc": "Seven B-2 bombers from Diego Garcia carried 14 GBU-57 Massive Ordnance Penetrators; submarines launched Tomahawks simultaneously. Targets: Fordow, Natanz, Isfahan: the first direct US military action against Iran. B-2 round-trip: ~30 flight hours at $130,000/hr. GBU-57 cost: $3.5M–$14M per bomb.",
       "cost_note": "7 B-2 sorties (~30 hr each): ~$27M · Tomahawks: ~$50–100M · Day-1 total est.: $150–300M+",
       "sources": [
         { "label": "Wikipedia", "url": "https://en.wikipedia.org/wiki/United_States_strikes_on_Iranian_nuclear_sites" },

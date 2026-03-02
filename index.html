@@ -73,7 +73,16 @@
         <span class="burn-rate-value" id="burn-second">—</span>
         <span class="burn-rate-unit">per second</span>
       </div>
+      <button class="burn-info-btn" id="burn-info-btn"
+              aria-label="How is this rate calculated?"
+              aria-expanded="false"
+              aria-controls="burn-tooltip">ⓘ</button>
     </div>
+    <div class="burn-tooltip" id="burn-tooltip" hidden>
+      <!-- populated by main.js -->
+    </div>
+
+    <p class="human-cost-note">Financial cost only. The human cost — lives lost, the displaced, the bereaved on all sides — is not in this number, and cannot be.</p>
 
     <div class="scroll-cue">
       Scroll <div class="scroll-arrow"></div>
@@ -88,13 +97,14 @@
       <p class="section-eyebrow">Why This Exists</p>
       <div class="why-callout">
         <p class="why-text">
-          In early March 2026, I read that three US F-15s had been shot down by friendly fire
-          near Kuwait. My first thought: <em>what did those planes cost?</em> My second:
-          <em>what does all of this cost?</em> The answer was scattered across congressional
+          On March 2nd 2026, I read that three US F-15s had been shot down by friendly fire
+          near Kuwait. My first thought: <b>what did those planes cost</b>? My second:
+          <b>what does all of this cost</b>? The answer was scattered across congressional
           appropriations, Pentagon press releases, and defense research reports. This is the
           attempt to put it in one place, with every source linked.
         </p>
-        <p class="why-sig">Peter Koverda</p>
+        <p class="why-text" style="margin-top:0.9rem">These figures track dollars. They say nothing about the pilots who didn’t come home, the people under the strikes, or the families on all sides who lost someone. Those costs have no anchor date and no running total.</p>
+        <p class="why-sig">- Peter Koverda</p>
       </div>
     </div>
   </section>

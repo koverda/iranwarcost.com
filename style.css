@@ -229,7 +229,7 @@ nav {
   border-right: 2px solid var(--border);
 }
 
-.burn-rate-item:last-child { border-right: none; }
+.burn-rate-item:last-of-type { border-right: none; }
 
 .burn-rate-value {
   font-size: 0.95rem;
@@ -245,6 +245,96 @@ nav {
   letter-spacing: 0.1em;
   display: block;
   margin-top: 0.1rem;
+}
+
+/* ── BURN INFO BUTTON ── */
+.burn-info-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+  background: none;
+  border: none;
+  border-left: 2px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.burn-info-btn:hover,
+.burn-info-btn[aria-expanded="true"] { color: var(--text); }
+
+/* ── BURN RATE TOOLTIP ── */
+.burn-tooltip {
+  background: var(--bg-card);
+  border: 2px solid var(--border2);
+  border-top: 2px solid var(--red);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 540px;
+  text-align: left;
+}
+
+.burn-tooltip[hidden] { display: none; }
+
+.burn-tooltip p { margin-bottom: 0.5rem; }
+.burn-tooltip p:last-child { margin-bottom: 0; }
+
+.burn-tooltip-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.burn-tooltip-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.6rem 0;
+}
+
+.burn-tooltip-table th {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding: 0.25rem 0.4rem;
+  text-align: left;
+  font-size: 0.65rem;
+}
+
+.burn-tooltip-table td {
+  padding: 0.25rem 0.4rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.burn-tooltip-table td:nth-child(3) { text-align: right; }
+.burn-tooltip-table tr.highlight td { color: var(--gold); }
+
+.burn-tooltip-link { color: var(--muted); text-decoration: underline; }
+.burn-tooltip-link:hover { color: var(--text); }
+
+.human-cost-note {
+  font-size: 0.72rem;
+  color: #505050;
+  letter-spacing: 0.06em;
+  text-align: center;
+  max-width: 480px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 .scroll-cue {

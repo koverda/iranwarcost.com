@@ -10,16 +10,18 @@ function init(data) {
   // Burn rate: exponentially weighted average of interval slopes from chart data.
   // Intervals whose midpoint is more recent (closer to ANCHOR_DATE) get higher weight.
   // Half-life is configurable via data.meta.burn_rate_halflife_days (default 30).
+  let BURN_INTERVALS = []; // populated below; used by the burn-rate tooltip
   const DAILY_BURN = (function computeDailyBurn() {
     const halfLifeMs = (data.meta.burn_rate_halflife_days || 30) * 86400000;
     const anchorMs   = ANCHOR_DATE.getTime();
 
     const pts = data.events
       .filter(e => e.chart_y !== null && e.chart_y !== undefined)
-      .map(e => ({ t: new Date(e.date).getTime(), y: e.chart_y }))
+      .map(e => ({ t: new Date(e.date).getTime(), y: e.chart_y, date: e.date }))
       .sort((a, b) => a.t - b.t);
 
     let weightedSum = 0, totalWeight = 0;
+    const intervals = [];
     for (let i = 1; i < pts.length; i++) {
       const dtDays = (pts[i].t - pts[i - 1].t) / 86400000;
       const dy     = pts[i].y - pts[i - 1].y;
@@ -30,11 +32,13 @@ function init(data) {
       const ageMs      = anchorMs - midMs;
       const weight     = Math.exp(-ageMs / halfLifeMs);
 
+      intervals.push({ from: pts[i - 1].date, to: pts[i].date, ratePerDay, weight });
       weightedSum  += ratePerDay * weight;
       totalWeight  += weight;
     }
 
     if (totalWeight === 0) throw new Error('computeDailyBurn: no valid chart intervals in data.js');
+    BURN_INTERVALS = intervals.map(iv => ({ ...iv, weightPct: (iv.weight / totalWeight) * 100 }));
     return weightedSum / totalWeight;
   })();
 
@@ -106,6 +110,57 @@ function init(data) {
     // Methodology intro paragraph
     const mIntro = document.getElementById('methodology-intro');
     if (mIntro) mIntro.innerHTML = `The tracker starts on <strong>${data.meta.tracker_start_label}</strong> — the date President Biden signed H.R.8034, committing ${hr8034Label} in emergency Israel security assistance. This represents the first large, direct US financial commitment in response to escalating Iran-Israel conflict. All subsequent appropriations, operations, and air defense expenditures are counted from that date forward.`;
+
+    // Burn rate tooltip
+    const tooltipEl = document.getElementById('burn-tooltip');
+    const infoBtn   = document.getElementById('burn-info-btn');
+    if (tooltipEl && infoBtn) {
+      const halfLife = data.meta.burn_rate_halflife_days || 30;
+      const fmtDate  = iso => new Date(iso).toLocaleDateString('en-US', {
+        month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC'
+      });
+      const fmtRate  = r => {
+        if (r >= 1e9) return '$' + (r / 1e9).toFixed(2) + 'B';
+        if (r >= 1e6) return '$' + (r / 1e6).toFixed(0) + 'M';
+        return '$' + Math.round(r).toLocaleString('en-US');
+      };
+
+      const maxPct = Math.max(...BURN_INTERVALS.map(iv => iv.weightPct));
+      const rows = BURN_INTERVALS.slice().reverse().map(iv => {
+        const cls = iv.weightPct === maxPct ? ' class="highlight"' : '';
+        return `<tr${cls}><td>${fmtDate(iv.from)} – ${fmtDate(iv.to)}</td><td>${fmtRate(iv.ratePerDay)}/day</td><td>${iv.weightPct.toFixed(1)}%</td></tr>`;
+      }).join('');
+
+      tooltipEl.innerHTML =
+        `<div class="burn-tooltip-title">How This Rate Is Calculated</div>` +
+        `<p>The daily burn rate is an <strong>exponentially weighted average</strong> of spending intervals ` +
+        `derived from our cost timeline. Intervals whose midpoint falls closer to the anchor date receive ` +
+        `higher weight, with a ${halfLife}-day half-life.</p>` +
+        `<table class="burn-tooltip-table">` +
+          `<thead><tr><th>Interval</th><th>Rate/day</th><th>Weight</th></tr></thead>` +
+          `<tbody>${rows}</tbody>` +
+        `</table>` +
+        `<p>Result: <strong style="color:var(--text)">~$${dailyM}M/day</strong> — dominated by the most ` +
+        `recent spending period. <a class="burn-tooltip-link" href="#sources">Full methodology →</a></p>`;
+
+      infoBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        const opening = tooltipEl.hidden;
+        tooltipEl.hidden = !opening;
+        infoBtn.setAttribute('aria-expanded', String(opening));
+      });
+
+      // Click outside closes the tooltip
+      document.addEventListener('click', () => {
+        if (!tooltipEl.hidden) {
+          tooltipEl.hidden = true;
+          infoBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Clicks inside the tooltip don't close it
+      tooltipEl.addEventListener('click', e => e.stopPropagation());
+    }
   })();
 
   // ── HERO COUNTER ──────────────────────────────────────────────────────────

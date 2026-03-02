@@ -10,8 +10,6 @@ A real-time tracker of estimated US military spending on the Iran conflict since
 
 In early March 2026, I read a news report about three US F-15s shot down by friendly fire near Kuwait. My first thought was: *what did those planes cost?* My second was: *what does all of this cost?* The answer was harder to find than it should be — scattered across congressional appropriations, Pentagon press releases, and defense research reports. This site puts it in one place, in plain numbers, with every source linked.
 
-— Peter Koverda
-
 ---
 
 ## What it tracks
