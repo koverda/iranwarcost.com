@@ -635,9 +635,9 @@ nav {
 
 .compare-bar-fill { height: 100%; transition: width 1.2s ease; }
 .compare-bar-fill.war     { background: var(--red); }
-.compare-bar-fill.epa     { background: var(--border2); }
-.compare-bar-fill.nsf     { background: var(--border2); }
-.compare-bar-fill.housing { background: var(--border2); }
+.compare-bar-fill.epa     { background: #505050; }
+.compare-bar-fill.nsf     { background: #505050; }
+.compare-bar-fill.housing { background: #505050; }
 
 .compare-row-val {
   font-family: 'Space Mono', monospace;
@@ -799,6 +799,15 @@ footer a { color: var(--muted); text-decoration: underline; }
 }
 
 .disclaimer-banner strong { color: var(--text); }
+
+/* ── RESPONSIVE: MOBILE CHART ── */
+@media (max-width: 639px) {
+  .chart-container {
+    padding: 0.5rem 0.25rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+}
 
 /* ── RESPONSIVE: TABLET ── */
 @media (min-width: 640px) {

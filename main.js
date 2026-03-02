@@ -222,23 +222,23 @@ new Chart(ctx, {
   options: {
     responsive: true,
     maintainAspectRatio: true,
-    aspectRatio: isMobile ? 1.4 : 2,
+    aspectRatio: isMobile ? 1.1 : 2,
     interaction: { mode: 'index', intersect: false },
     layout: {
-      padding: { top: 16, right: isMobile ? 8 : 100, bottom: isMobile ? 8 : 40 },
+      padding: { top: 16, right: isMobile ? 8 : 16, bottom: isMobile ? 8 : 24 },
     },
     scales: {
       x: {
         type: 'time',
         time: { unit: 'month', displayFormats: { month: isMobile ? 'MMM' : 'MMM yy' } },
         grid: { color: 'rgba(255,255,255,0.03)' },
-        ticks: { color: '#8a8a8a', font: { size: isMobile ? 9 : 11 }, maxRotation: 0, maxTicksLimit: isMobile ? 6 : 12 },
+        ticks: { color: '#8a8a8a', font: { size: 11 }, maxRotation: 0, maxTicksLimit: isMobile ? 6 : 12 },
       },
       y: {
         grid: { color: 'rgba(255,255,255,0.03)' },
         ticks: {
           color: '#8a8a8a',
-          font: { size: isMobile ? 9 : 11 },
+          font: { size: 11 },
           callback: v => '$' + (v / 1e9).toFixed(0) + 'B',
           maxTicksLimit: isMobile ? 5 : 8,
         },
