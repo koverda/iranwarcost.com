@@ -7,7 +7,7 @@
   --red:      #cc0000;
   --red-dim:  rgba(204,0,0,0.15);
   --gold:     #ffd166;
-  --blue:     #4cc9f0;
+
   --text:     #e8e8e8;
   --muted:    #8a8a8a;
   --border:   #1e1e1e;
@@ -20,7 +20,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   padding-top: 52px;
 }
@@ -114,7 +114,7 @@ nav {
 }
 
 .hero-eyebrow {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -134,32 +134,9 @@ nav {
 
 .hero-subtitle {
   color: var(--muted);
-  font-size: clamp(0.78rem, 2.5vw, 0.95rem);
+  font-size: clamp(0.88rem, 2.5vw, 1.05rem);
   margin-bottom: 2.5rem;
   max-width: 540px;
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--red);
-  padding: 0.3rem 0.9rem;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 1.4rem;
-}
-
-.status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #fff;
-  animation: blink 1.2s step-start infinite;
 }
 
 @keyframes blink {
@@ -168,7 +145,7 @@ nav {
 }
 
 .counter-label {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -194,7 +171,7 @@ nav {
 }
 
 .per-taxpayer-label {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--muted);
@@ -222,7 +199,7 @@ nav {
   gap: 0.35rem;
   padding: 0.35rem 0.8rem;
   font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -262,7 +239,7 @@ nav {
 }
 
 .burn-rate-unit {
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -280,7 +257,7 @@ nav {
   align-items: center;
   gap: 0.25rem;
   color: var(--muted);
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
@@ -312,10 +289,10 @@ nav {
 }
 
 .section-eyebrow {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--muted);
   margin-bottom: 0.5rem;
   font-weight: 400;
 }
@@ -331,7 +308,7 @@ nav {
 
 .section-desc {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 1rem;
   max-width: 640px;
   margin-bottom: 2rem;
   line-height: 1.7;
@@ -405,7 +382,7 @@ nav {
 
 .event-date {
   font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -414,7 +391,7 @@ nav {
 
 .event-title {
   font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--text);
@@ -423,7 +400,7 @@ nav {
 }
 
 .event-desc {
-  font-size: 0.84rem;
+  font-size: 0.92rem;
   color: var(--muted);
   line-height: 1.7;
   max-width: 720px;
@@ -431,7 +408,7 @@ nav {
 
 .event-cost {
   font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   color: var(--gold);
   font-weight: 700;
   margin-top: 0.3rem;
@@ -445,8 +422,8 @@ nav {
 }
 
 .event-source-link {
-  font-size: 0.65rem;
-  color: var(--blue);
+  font-size: 0.72rem;
+  color: var(--muted);
   text-decoration: none;
   border: 1px solid var(--border2);
   padding: 0.1rem 0.4rem;
@@ -455,7 +432,7 @@ nav {
   transition: border-color 0.15s, color 0.15s;
 }
 
-.event-source-link:hover { border-color: var(--blue); color: #fff; }
+.event-source-link:hover { border-color: var(--muted); color: var(--text); }
 
 /* ── EVENT TWISTY (details/summary) ── */
 .event-details {
@@ -467,8 +444,8 @@ nav {
   cursor: pointer;
   user-select: none;
   display: grid;
-  grid-template-columns: 1rem 1fr;
-  gap: 0.3rem;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 0.4rem;
   align-items: baseline;
 }
 
@@ -478,33 +455,55 @@ nav {
 .event-details > summary::before {
   content: '+';
   font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--muted);
-  line-height: 1.4;
-  transition: color 0.15s;
+  font-size: 0.72rem;
   font-weight: 700;
+  color: var(--muted);
+  border: 1px solid var(--border2);
+  background: var(--bg-card2);
+  padding: 0.1rem 0.35rem;
+  line-height: 1.5;
+  text-align: center;
+  display: inline-block;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
 }
 
 .event-details[open] > summary::before {
   content: '−';
   color: var(--red);
+  border-color: var(--red);
+  background: rgba(204,0,0,0.08);
 }
 
 .event-details > summary:hover::before {
   color: var(--text);
+  border-color: var(--muted);
 }
 
-/* summary inherits .event-title styles; reset grid child to span correctly */
+/* summary inherits .event-title styles */
 .event-details > summary.event-title {
-  margin: 0.2rem 0 0;
+  margin: 0.25rem 0 0;
 }
 
 .event-body {
-  padding-left: 1.3rem;
-  padding-top: 0.5rem;
+  padding-left: 1.5rem;
+  padding-top: 0.6rem;
   border-left: 1px solid var(--border2);
-  margin-top: 0.4rem;
-  margin-left: 0.35rem;
+  margin-top: 0.5rem;
+  margin-left: 0.45rem;
+}
+
+/* ── EVENT CUMULATIVE COST BADGE ── */
+.event-cumul {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  border: 1px solid var(--border2);
+  padding: 0.05rem 0.35rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  text-transform: uppercase;
 }
 
 /* ── CONTRIBUTE CTA ── */
@@ -517,7 +516,7 @@ nav {
 
 .contribute-cta a {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -525,7 +524,7 @@ nav {
   transition: color 0.15s;
 }
 
-.contribute-cta a:hover { color: var(--blue); }
+.contribute-cta a:hover { color: var(--text); }
 
 /* ── PER-TAXPAYER SECTION ── */
 .taxpayer-highlight {
@@ -538,7 +537,7 @@ nav {
 
 .th-label {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -555,7 +554,7 @@ nav {
 
 .th-sub {
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   margin-top: 0.4rem;
 }
 
@@ -576,7 +575,7 @@ nav {
 
 .tc-period {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--muted);
@@ -590,19 +589,13 @@ nav {
   line-height: 1;
 }
 
-.tc-desc {
-  font-size: 0.7rem;
-  color: var(--muted);
-  margin-top: 0.3rem;
-  line-height: 1.4;
-}
 
 /* ── COMPARISON BARS ── */
 .compare-section { margin-top: 2rem; }
 
 .compare-title {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -617,13 +610,13 @@ nav {
 }
 
 .compare-row-label {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   color: var(--text);
   font-weight: 600;
 }
 
 .compare-row-sublabel {
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   color: var(--muted);
   margin-top: -0.1rem;
 }
@@ -642,13 +635,13 @@ nav {
 
 .compare-bar-fill { height: 100%; transition: width 1.2s ease; }
 .compare-bar-fill.war     { background: var(--red); }
-.compare-bar-fill.epa     { background: #06d6a0; }
-.compare-bar-fill.nsf     { background: var(--blue); }
-.compare-bar-fill.housing { background: #8338ec; }
+.compare-bar-fill.epa     { background: var(--border2); }
+.compare-bar-fill.nsf     { background: var(--border2); }
+.compare-bar-fill.housing { background: var(--border2); }
 
 .compare-row-val {
   font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
   width: 60px;
   text-align: right;
@@ -671,7 +664,7 @@ nav {
   transition: border-color 0.15s;
 }
 
-.comparison-card:hover { border-left-color: var(--blue); }
+.comparison-card:hover { border-left-color: var(--muted); }
 
 .cc-icon { font-size: 1.5rem; display: block; margin-bottom: 0.6rem; }
 
@@ -679,27 +672,27 @@ nav {
   font-family: 'Oswald', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--text);
   line-height: 1.15;
   margin-bottom: 0.2rem;
   text-transform: uppercase;
 }
 
 .cc-label {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: var(--text);
   margin-bottom: 0.4rem;
   line-height: 1.45;
 }
 
-.cc-source { font-size: 0.65rem; color: var(--muted); }
+.cc-source { font-size: 0.72rem; color: var(--muted); }
 
 .jobs-callout {
   background: var(--bg-card2);
   border-left: 3px solid var(--red);
   padding: 1.2rem 1.4rem;
   margin-top: 1rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--muted);
   line-height: 1.65;
 }
@@ -719,7 +712,7 @@ nav {
 .sources-list li {
   padding: 0.9rem 1rem;
   background: var(--bg-card);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .src-org {
@@ -732,7 +725,7 @@ nav {
 }
 
 .src-desc { color: var(--muted); line-height: 1.5; }
-.src-desc a { color: var(--blue); text-decoration: none; }
+.src-desc a { color: var(--muted); text-decoration: underline; }
 .src-desc a:hover { text-decoration: underline; }
 
 .methodology-note {
@@ -740,7 +733,7 @@ nav {
   padding: 1.2rem;
   background: var(--bg-card);
   border: 2px solid var(--border);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.75;
 }
@@ -751,7 +744,7 @@ nav {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
 }
 
 .cost-table th {
@@ -787,7 +780,7 @@ footer {
   padding: 2rem 1rem;
   text-align: center;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   line-height: 1.8;
 }
 
@@ -799,7 +792,7 @@ footer a { color: var(--muted); text-decoration: underline; }
   border: 2px solid var(--border2);
   border-left: 3px solid var(--gold);
   padding: 0.8rem 1rem;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: var(--muted);
   line-height: 1.55;
   margin-bottom: 2rem;

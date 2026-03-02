@@ -120,12 +120,12 @@ const annotations = {
   roughRider: {
     type: 'line',
     xMin: '2025-03-15', xMax: '2025-03-15',
-    borderColor: 'rgba(76,201,240,0.4)',
+    borderColor: 'rgba(138,138,138,0.4)',
     borderWidth: 1,
     borderDash: [3, 3],
     label: {
       display: true, content: 'Op. Rough Rider', position: 'start',
-      color: '#4cc9f0', font: { size: 10 },
+      color: '#8a8a8a', font: { size: 11 },
       backgroundColor: 'rgba(10,10,10,0.9)',
       yAdjust: 60,
     }
@@ -138,7 +138,7 @@ const annotations = {
     borderDash: [4, 3],
     label: {
       display: true, content: '12-Day War Begins', position: 'start',
-      color: '#ffd166', font: { size: 10 },
+      color: '#ffd166', font: { size: 11 },
       backgroundColor: 'rgba(10,10,10,0.9)',
       yAdjust: 40,
     }
@@ -151,7 +151,7 @@ const annotations = {
     borderDash: [4, 3],
     label: {
       display: true, content: 'Op. Midnight Hammer', position: 'start',
-      color: '#ffd166', font: { size: 10 },
+      color: '#ffd166', font: { size: 11 },
       backgroundColor: 'rgba(10,10,10,0.9)',
       yAdjust: 15,
     }
@@ -164,7 +164,7 @@ const annotations = {
     borderDash: [4, 3],
     label: {
       display: true, content: '12-Day War Ends', position: 'start',
-      color: '#ffd166', font: { size: 10 },
+      color: '#ffd166', font: { size: 11 },
       backgroundColor: 'rgba(10,10,10,0.9)',
       yAdjust: 8,
     }
@@ -172,12 +172,12 @@ const annotations = {
   jan26: {
     type: 'line',
     xMin: '2026-01-29', xMax: '2026-01-29',
-    borderColor: 'rgba(76,201,240,0.4)',
+    borderColor: 'rgba(138,138,138,0.4)',
     borderWidth: 1,
     borderDash: [4, 3],
     label: {
       display: true, content: '2 CSGs Deployed', position: 'start',
-      color: '#4cc9f0', font: { size: 10 },
+      color: '#8a8a8a', font: { size: 11 },
       backgroundColor: 'rgba(10,10,10,0.9)',
       yAdjust: 30,
       xAdjust: -60,
@@ -190,7 +190,7 @@ const annotations = {
     borderWidth: 2,
     label: {
       display: true, content: 'Op. Epic Fury Begins', position: 'start',
-      color: '#cc0000', font: { size: 10, weight: 'bold' },
+      color: '#cc0000', font: { size: 11, weight: 'bold' },
       backgroundColor: 'rgba(10,10,10,0.95)',
       yAdjust: 8,
       xAdjust: -70,
@@ -233,20 +233,20 @@ new Chart(ctx, {
         type: 'time',
         time: { unit: 'month', displayFormats: { month: 'MMM yy' } },
         grid: { color: 'rgba(255,255,255,0.03)' },
-        ticks: { color: '#8a8a8a', font: { size: 10 }, maxRotation: 0 },
+        ticks: { color: '#8a8a8a', font: { size: 11 }, maxRotation: 0 },
       },
       y: {
         grid: { color: 'rgba(255,255,255,0.03)' },
         ticks: {
           color: '#8a8a8a',
-          font: { size: 10 },
+          font: { size: 11 },
           callback: v => '$' + (v / 1e9).toFixed(0) + 'B',
         },
         title: {
           display: true,
           text: 'Cumulative Spending (USD)',
           color: '#8a8a8a',
-          font: { size: 10 },
+          font: { size: 11 },
         }
       }
     },
@@ -257,7 +257,7 @@ new Chart(ctx, {
         borderColor: '#1e1e1e',
         borderWidth: 1,
         titleColor: '#e8e8e8',
-        bodyColor: '#505050',
+        bodyColor: '#8a8a8a',
         callbacks: {
           label: ctx => ' $' + (ctx.parsed.y / 1e9).toFixed(2) + ' billion'
         }
