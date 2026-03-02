@@ -6,6 +6,12 @@
   <title>US Military Cost — Iran Conflict 2025–</title>
   <meta name="description" content="Documented US military spending on the Iran conflict since January 2025 — direct operations, weapons, air defense, and Iran-related military aid. Data-driven, source-cited.">
 
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,797 +23,19 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
   <!-- CountUp.js -->
   <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:       #050810;
-      --bg-card:  #0a0e1c;
-      --bg-card2: #0d1226;
-      --red:      #e63946;
-      --red-dim:  rgba(230,57,70,0.15);
-      --gold:     #ffd166;
-      --blue:     #4cc9f0;
-      --text:     #dde3f0;
-      --muted:    #4a5672;
-      --border:   #1a2238;
-      --border2:  #242f47;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      /* push below ticker + nav */
-      padding-top: 82px;
-    }
-
-    /* ── TYPOGRAPHY ── */
-    h1, h2, h3,
-    .hero-title, .section-title, .event-title,
-    .nav-brand, .section-eyebrow, .hero-eyebrow {
-      font-family: 'Oswald', 'Arial Narrow', sans-serif;
-    }
-
-    #total-counter, #taxpayer-counter,
-    #taxpayer-big, .tc-amount,
-    .burn-rate-value {
-      font-family: 'Space Mono', 'Courier New', monospace;
-    }
-
-    /* ── TICKER ── */
-    .top-ticker {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 300;
-      height: 30px;
-      background: var(--red);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-
-    .ticker-track {
-      display: flex;
-      white-space: nowrap;
-      animation: ticker 40s linear infinite;
-    }
-
-    .ticker-item {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #fff;
-      padding: 0 2rem;
-    }
-
-    .ticker-sep {
-      font-size: 0.6rem;
-      color: rgba(255,255,255,0.5);
-      padding: 0 0.5rem;
-    }
-
-    @keyframes ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 30px; left: 0; right: 0;
-      z-index: 200;
-      height: 52px;
-      background: var(--bg);
-      border-bottom: 2px solid var(--border);
-      padding: 0 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-brand {
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--red);
-    }
-
-    .nav-links {
-      display: none;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.75rem;
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.15s;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: calc(100vh - 82px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 3rem 1rem 4rem;
-      position: relative;
-      border-bottom: 2px solid var(--border);
-    }
-
-    /* hard red top accent line */
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--red);
-    }
-
-    .hero-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      font-weight: 400;
-    }
-
-    .hero-title {
-      font-size: clamp(1.6rem, 7vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
-      max-width: 700px;
-    }
-
-    .hero-subtitle {
-      color: var(--muted);
-      font-size: clamp(0.78rem, 2.5vw, 0.95rem);
-      margin-bottom: 2.5rem;
-      max-width: 540px;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--red);
-      padding: 0.3rem 0.9rem;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 1.4rem;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #fff;
-      animation: blink 1.2s step-start infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0; }
-    }
-
-    .counter-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
-    }
-
-    #total-counter {
-      font-size: clamp(2.4rem, 11vw, 7rem);
-      font-weight: 700;
-      color: var(--red);
-      letter-spacing: -0.02em;
-      line-height: 1;
-      display: block;
-      min-width: 10ch;
-    }
-
-    .per-taxpayer-wrapper {
-      margin: 1.5rem 0 2rem;
-      padding: 0.9rem 1.5rem;
-      border: 2px solid var(--border2);
-      background: var(--bg-card);
-      display: inline-block;
-    }
-
-    .per-taxpayer-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.2rem;
-    }
-
-    #taxpayer-counter {
-      font-size: clamp(1.4rem, 5vw, 2.4rem);
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .burn-rates {
-      display: flex;
-      gap: 0;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-      border: 2px solid var(--border);
-    }
-
-    .burn-rate-item {
-      padding: 0.7rem 1.2rem;
-      text-align: center;
-      border-right: 2px solid var(--border);
-    }
-
-    .burn-rate-item:last-child { border-right: none; }
-
-    .burn-rate-value {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      display: block;
-    }
-
-    .burn-rate-unit {
-      font-size: 0.6rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      display: block;
-      margin-top: 0.1rem;
-    }
-
-    .scroll-cue {
-      position: absolute;
-      bottom: 1.2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
-      color: var(--muted);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-family: 'Oswald', sans-serif;
-      animation: bob 2.5s ease-in-out infinite;
-    }
-
-    .scroll-arrow {
-      width: 16px; height: 16px;
-      border-right: 2px solid var(--muted);
-      border-bottom: 2px solid var(--muted);
-      transform: rotate(45deg);
-    }
-
-    @keyframes bob {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50%       { transform: translateX(-50%) translateY(5px); }
-    }
-
-    /* ── SECTION WRAPPERS ── */
-    .section-inner {
-      padding: 3rem 1rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-divider {
-      border: none;
-      border-top: 2px solid var(--border);
-    }
-
-    .section-eyebrow {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-    }
-
-    .section-title {
-      font-size: clamp(1.4rem, 4vw, 2.2rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.5rem;
-      line-height: 1.1;
-    }
-
-    .section-desc {
-      color: var(--muted);
-      font-size: 0.9rem;
-      max-width: 620px;
-      margin-bottom: 2rem;
-      line-height: 1.65;
-    }
-
-    /* ── CHART ── */
-    .chart-container {
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      padding: 1rem;
-      position: relative;
-    }
-
-    .chart-container canvas { max-height: 360px; }
-
-    /* ── EVENTS TIMELINE LIST ── */
-    .events-list {
-      margin-top: 2.5rem;
-      border-left: 3px solid var(--border);
-      padding-left: 1.25rem;
-      margin-left: 0.5rem;
-    }
-
-    .event-item {
-      position: relative;
-      padding-bottom: 2rem;
-    }
-
-    .event-item::before {
-      content: '';
-      position: absolute;
-      left: -1.625rem;
-      top: 0.45rem;
-      width: 10px; height: 10px;
-      background: var(--border);
-      border: 2px solid var(--bg);
-    }
-
-    .event-item.major::before  { background: var(--red); }
-    .event-item.notable::before { background: var(--gold); }
-
-    .event-date {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .event-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: var(--text);
-      margin: 0.2rem 0 0.3rem;
-      line-height: 1.2;
-    }
-
-    .event-desc {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.65;
-      max-width: 720px;
-    }
-
-    .event-cost {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--gold);
-      font-weight: 700;
-      margin-top: 0.3rem;
-    }
-
-    .event-sources {
-      margin-top: 0.4rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .event-source-link {
-      font-size: 0.65rem;
-      color: var(--blue);
-      text-decoration: none;
-      border: 1px solid var(--border2);
-      padding: 0.1rem 0.4rem;
-      font-family: 'Space Mono', monospace;
-      letter-spacing: 0.03em;
-      transition: border-color 0.15s, color 0.15s;
-    }
-
-    .event-source-link:hover {
-      border-color: var(--blue);
-      color: #fff;
-    }
-
-    /* ── PER-TAXPAYER SECTION ── */
-    .taxpayer-highlight {
-      background: var(--bg-card);
-      border: 2px solid var(--border2);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .th-label {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.4rem;
-    }
-
-    #taxpayer-big {
-      font-size: clamp(2.4rem, 9vw, 5rem);
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-      display: block;
-    }
-
-    .th-sub {
-      color: var(--muted);
-      font-size: 0.75rem;
-      margin-top: 0.4rem;
-    }
-
-    .taxpayer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 2px solid var(--border);
-      margin-top: 1rem;
-    }
-
-    .taxpayer-card {
-      background: var(--bg-card);
-      padding: 1.2rem;
-      text-align: center;
-    }
-
-    .tc-period {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .tc-amount {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .tc-desc {
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 0.3rem;
-      line-height: 1.4;
-    }
-
-    /* ── COMPARISON BARS ── */
-    .compare-section { margin-top: 2rem; }
-
-    .compare-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 1.2rem;
-    }
-
-    .compare-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.3rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .compare-row-label {
-      font-size: 0.78rem;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .compare-row-sublabel {
-      font-size: 0.68rem;
-      color: var(--muted);
-      margin-top: -0.1rem;
-    }
-
-    .compare-bar-row {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .compare-bar-track {
-      flex: 1;
-      height: 10px;
-      background: var(--border);
-    }
-
-    .compare-bar-fill {
-      height: 100%;
-      transition: width 1.2s ease;
-    }
-
-    .compare-bar-fill.war       { background: var(--red); }
-    .compare-bar-fill.epa       { background: #06d6a0; }
-    .compare-bar-fill.nsf       { background: var(--blue); }
-    .compare-bar-fill.housing   { background: #8338ec; }
-
-    .compare-row-val {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      font-weight: 700;
-      width: 60px;
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    /* ── ALTERNATIVES ── */
-    .comparison-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 2px solid var(--border);
-    }
-
-    .comparison-card {
-      background: var(--bg-card);
-      padding: 1.25rem;
-      border-left: 3px solid transparent;
-      transition: border-color 0.15s;
-    }
-
-    .comparison-card:hover { border-left-color: var(--blue); }
-
-    .cc-icon {
-      font-size: 1.5rem;
-      display: block;
-      margin-bottom: 0.6rem;
-    }
-
-    .cc-number {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--blue);
-      line-height: 1.15;
-      margin-bottom: 0.2rem;
-      text-transform: uppercase;
-    }
-
-    .cc-label {
-      font-size: 0.82rem;
-      color: var(--text);
-      margin-bottom: 0.4rem;
-      line-height: 1.45;
-    }
-
-    .cc-source {
-      font-size: 0.65rem;
-      color: var(--muted);
-    }
-
-    .jobs-callout {
-      background: var(--bg-card2);
-      border-left: 3px solid var(--red);
-      padding: 1.2rem 1.4rem;
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .jobs-callout strong { color: var(--text); }
-
-    /* ── SOURCES ── */
-    .sources-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      background: var(--border);
-      border: 2px solid var(--border);
-    }
-
-    .sources-list li {
-      padding: 0.9rem 1rem;
-      background: var(--bg-card);
-      font-size: 0.8rem;
-    }
-
-    .src-org {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-    }
-
-    .src-desc {
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .src-desc a {
-      color: var(--blue);
-      text-decoration: none;
-    }
-
-    .src-desc a:hover { text-decoration: underline; }
-
-    .methodology-note {
-      margin-top: 1rem;
-      padding: 1.2rem;
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .methodology-note strong { color: var(--text); }
-
-    .cost-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      font-size: 0.78rem;
-    }
-
-    .cost-table th {
-      background: var(--bg-card2);
-      color: var(--muted);
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.6rem 0.8rem;
-      text-align: left;
-      border-bottom: 2px solid var(--border);
-    }
-
-    .cost-table td {
-      padding: 0.55rem 0.8rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--muted);
-      vertical-align: top;
-    }
-
-    .cost-table td:last-child {
-      color: var(--gold);
-      font-family: 'Space Mono', monospace;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .cost-table tr:hover td { background: var(--bg-card2); }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 2px solid var(--border);
-      padding: 2rem 1rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.72rem;
-      line-height: 1.8;
-    }
-
-    footer a { color: var(--muted); text-decoration: underline; }
-
-    /* ── DISCLAIMER BANNER ── */
-    .disclaimer-banner {
-      background: var(--bg-card);
-      border: 2px solid var(--border2);
-      border-left: 3px solid var(--gold);
-      padding: 0.8rem 1rem;
-      font-size: 0.72rem;
-      color: var(--muted);
-      line-height: 1.55;
-      margin-bottom: 2rem;
-    }
-
-    .disclaimer-banner strong { color: var(--text); }
-
-    /* ── RESPONSIVE: TABLET ── */
-    @media (min-width: 640px) {
-      .section-inner { padding: 4rem 1.5rem; }
-      .comparison-grid { grid-template-columns: 1fr 1fr; }
-      .compare-row {
-        grid-template-columns: 200px 1fr;
-        align-items: center;
-        gap: 0.8rem;
-      }
-      .compare-row-sublabel { display: none; }
-    }
-
-    /* ── RESPONSIVE: DESKTOP ── */
-    @media (min-width: 1024px) {
-      .section-inner { padding: 5rem 2rem; }
-      .nav-links { display: flex; }
-      .comparison-grid { grid-template-columns: repeat(4, 1fr); }
-      .taxpayer-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- TICKER -->
-  <div class="top-ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <!-- doubled for seamless loop -->
-      <span class="ticker-item">OP. EPIC FURY — DAY 3</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">4 US SERVICE MEMBERS KIA</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">HEZBOLLAH OPENS NORTHERN FRONT</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">$200M / DAY BURN RATE</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">3 US F-15s LOST TO FRIENDLY FIRE</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">KHAMENEI KILLED — FEB 28, 2026</span>
-      <span class="ticker-sep">////</span>
-      <span class="ticker-item">OP. EPIC FURY — DAY 3</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">4 US SERVICE MEMBERS KIA</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">HEZBOLLAH OPENS NORTHERN FRONT</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">$200M / DAY BURN RATE</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">3 US F-15s LOST TO FRIENDLY FIRE</span>
-      <span class="ticker-sep">//</span>
-      <span class="ticker-item">KHAMENEI KILLED — FEB 28, 2026</span>
-      <span class="ticker-sep">////</span>
-    </div>
-  </div>
-
   <!-- NAV -->
   <nav>
-    <div class="nav-brand">IranWarCost.com</div>
+    <a class="nav-brand" href="/">IranWarCost.com</a>
     <ul class="nav-links">
+      <li><a href="#why">Why</a></li>
       <li><a href="#chart">Timeline</a></li>
       <li><a href="#taxpayer">Your Share</a></li>
       <li><a href="#alternatives">Alternatives</a></li>
       <li><a href="#sources">Sources</a></li>
+      <li><a class="nav-github" href="https://github.com/koverda/iranwarcost.com" target="_blank" rel="noopener">⌥ GitHub</a></li>
     </ul>
   </nav>
 
@@ -820,7 +48,7 @@
 
     <p class="hero-eyebrow">US Military Expenditure — Iran Conflict 2025–</p>
     <h1 class="hero-title">The Cost of America's War with Iran</h1>
-    <p class="hero-subtitle">Estimated US taxpayer spending since January 2025 — direct military operations, weapons transfers, air defense support, and Iran-related military aid. Sources cited.</p>
+    <p class="hero-subtitle">Estimated US taxpayer spending since January 2025 — direct military operations, weapons transfers, air defense support, and Iran-related military aid. All figures sourced.</p>
 
     <div class="counter-label">Total Cost Since January 2025</div>
     <span id="total-counter">$0</span>
@@ -828,6 +56,13 @@
     <div class="per-taxpayer-wrapper">
       <div class="per-taxpayer-label">Per US Taxpayer</div>
       <span id="taxpayer-counter">$0</span>
+    </div>
+
+    <div class="share-buttons">
+      <a class="share-btn"
+         href="https://twitter.com/intent/tweet?text=The%20US%20war%20with%20Iran%20has%20cost%20%2416B%20since%202025%20%E2%80%94%20and%20counting.%20%24107%20per%20taxpayer.&url=https%3A%2F%2Firanwarcost.com"
+         target="_blank" rel="noopener">𝕏 Share</a>
+      <button class="share-btn" id="copy-link-btn" onclick="copyLink()">⬡ Copy Link</button>
     </div>
 
     <div class="burn-rates" aria-label="Burn rate">
@@ -852,15 +87,35 @@
 
   <hr class="section-divider">
 
+  <!-- WHY -->
+  <section id="why">
+    <div class="section-inner">
+      <p class="section-eyebrow">Why This Exists</p>
+      <div class="why-callout">
+        <p class="why-text">
+          In early March 2026, I read a news report: three US F-15s had been shot down by
+          friendly fire near Kuwait. My first thought was <em>what did those planes cost?</em>
+          My second was <em>what does all of this cost?</em> The answer was harder to find
+          than it should be — scattered across congressional appropriations, Pentagon press
+          releases, and defense research reports. This site is the attempt to put it in one
+          place, in plain numbers, with every source linked.
+        </p>
+        <p class="why-sig">— Peter Koverda</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
   <!-- TIMELINE CHART -->
   <section id="chart">
     <div class="section-inner">
       <p class="section-eyebrow">Escalation Timeline</p>
       <h2 class="section-title">How We Got Here</h2>
-      <p class="section-desc">Estimated cumulative US direct spending tied to the Iran conflict, from January 2025 through the launch of Operation Epic Fury in February 2026. Events marked with red dots represent major US military actions; gold dots represent significant escalation milestones.</p>
+      <p class="section-desc">Estimated cumulative US direct spending tied to the Iran conflict, from January 2025 through the start of direct combat operations in February 2026. Red dots = major US military actions; gold dots = significant escalation milestones.</p>
 
       <div class="disclaimer-banner">
-        <strong>Note on sourcing:</strong> Events through June 2025 are documented real occurrences with primary sources linked below each entry. Events from September 2025 onward reflect available public reporting through the site's anchor date of March 2, 2026. Cost figures are estimates based on confirmed weapons unit costs, known force deployments, and published analyses. See <a href="#sources" style="color:var(--blue)">Sources &amp; Methodology</a> for full detail.
+        <strong>Note on sourcing:</strong> Events through September 2025 are documented real occurrences with primary sources linked below. Events from late January 2026 onward reflect available public reporting through the site's anchor date of March 2, 2026. Cost figures are estimates based on confirmed weapons unit costs, known force deployments, and published defense analyses. See <a href="#sources" style="color:var(--blue)">Sources &amp; Methodology</a>.
       </div>
 
       <div class="chart-container">
@@ -870,11 +125,10 @@
       <!-- EVENTS LIST -->
       <div class="events-list">
 
-        <!-- BACKGROUND: April 2024 Supplemental -->
         <div class="event-item notable">
           <div class="event-date">April 20, 2024 — Background Context</div>
-          <div class="event-title">$95B Foreign Aid Package — $26.4B for Israel Security (H.R.8034)</div>
-          <div class="event-desc">Congress passed H.R.8034, the Israel Security Supplemental Appropriations Act, 2024, allocating $26.38 billion for Israel as part of a $95 billion combined package (also including $60.8B for Ukraine). Key components: $4B to replenish Iron Dome and David's Sling; $3.5B in Foreign Military Financing; $4.4B to replenish US war reserve stocks drawn down to supply Israel. Weapons drawdowns from this authorization continued into 2025 and directly funded systems deployed in the Iran conflict.</div>
+          <div class="event-title">$95B Foreign Aid Package — $26.38B for Israel Security (H.R.8034)</div>
+          <div class="event-desc">Congress passed H.R.8034, the Israel Security Supplemental Appropriations Act, 2024, allocating $26.38 billion for Israel as part of a $95 billion combined package (also including $60.84B for Ukraine and $8.12B for the Indo-Pacific). Funds covered Iron Dome and David's Sling replenishment, Foreign Military Financing, and US war reserve stock drawdowns. Those drawdowns continued into 2025 and directly funded systems deployed in the Iran conflict.</div>
           <div class="event-cost">Israel allocation: $26.38B · Ongoing FY2025 drawdowns included in this tracker</div>
           <div class="event-sources">
             <a class="event-source-link" href="https://www.congress.gov/bill/118th-congress/house-bill/8034" target="_blank" rel="noopener">Congress.gov H.R.8034</a>
@@ -883,24 +137,22 @@
           </div>
         </div>
 
-        <!-- October 2024 Iranian missile strike -->
         <div class="event-item notable">
           <div class="event-date">October 1, 2024 — Escalation Marker</div>
           <div class="event-title">Iran fires ~180–200 ballistic missiles at Israel ("Operation True Promise II")</div>
-          <div class="event-desc">Iran launched approximately 180–200 ballistic missiles in a single salvo at Israel — a significant escalation from its April 2024 attack. US forces intercepted multiple missiles alongside Israeli air defenses. The US military's interception of Iranian missiles during this attack depleted interceptor stockpiles, setting the stage for the costly replenishment programs that would follow in 2025. The IDF cited ~180 missiles; the White House cited "more than 200."</div>
-          <div class="event-cost">US interceptor costs (SM-3, THAAD): est. $200–400M · Full cost not included in 2025 tracker</div>
+          <div class="event-desc">Iran launched approximately 180–200 ballistic missiles in a single salvo at Israel — a major escalation from its April 2024 attack. The IDF cited ~180 missiles; the White House cited "more than 200." US forces fired interceptors alongside Israeli air defenses, depleting stockpiles that would need costly replenishment in 2025.</div>
+          <div class="event-cost">US interceptor costs est. $200–400M · Pre-2025; not included in the 2025 tracker</div>
           <div class="event-sources">
             <a class="event-source-link" href="https://en.wikipedia.org/wiki/October_2024_Iranian_strikes_on_Israel" target="_blank" rel="noopener">Wikipedia</a>
-            <a class="event-source-link" href="https://www.npr.org/2024/10/01/g-s1-25707/iran-israel-hezbollah-lebanon-attack" target="_blank" rel="noopener">NPR Report</a>
+            <a class="event-source-link" href="https://www.npr.org/2024/10/01/g-s1-25707/iran-israel-hezbollah-lebanon-attack" target="_blank" rel="noopener">NPR</a>
             <a class="event-source-link" href="https://www.aljazeera.com/news/2024/10/1/irans-missile-attack-against-israel-what-we-know-and-what-comes-next" target="_blank" rel="noopener">Al Jazeera</a>
           </div>
         </div>
 
-        <!-- Jan 2025 FMF -->
         <div class="event-item notable">
           <div class="event-date">March 15, 2025</div>
-          <div class="event-title">FY2025 Full-Year Appropriations Signed — $3.3B Foreign Military Financing for Israel</div>
-          <div class="event-desc">President Trump signed H.R.1968, the Full-Year Continuing Appropriations and Extensions Act, 2025, which funds Israel's baseline Foreign Military Financing at $3.3 billion — the statutory annual security assistance level established by US–Israel MOU. The act also includes $450.3M for Israeli Off-Shore Procurement and ongoing missile defense replenishment. This is separate from and in addition to the emergency April 2024 supplemental.</div>
+          <div class="event-title">FY2025 Full-Year Appropriations signed — $3.3B Foreign Military Financing for Israel</div>
+          <div class="event-desc">President Trump signed H.R.1968, funding Israel's baseline Foreign Military Financing at $3.3 billion — the statutory annual level established by the US–Israel Memorandum of Understanding. The act also includes $450.3M for Israeli Off-Shore Procurement and ongoing missile defense replenishment. This is in addition to the emergency April 2024 supplemental.</div>
           <div class="event-cost">FY2025 FMF: $3.3B · Plus $450M offshore procurement</div>
           <div class="event-sources">
             <a class="event-source-link" href="https://www.congress.gov/bill/119th-congress/house-bill/1968/text" target="_blank" rel="noopener">Congress.gov H.R.1968</a>
@@ -908,37 +160,34 @@
           </div>
         </div>
 
-        <!-- Operation Rough Rider -->
         <div class="event-item notable">
           <div class="event-date">March–May 2025</div>
-          <div class="event-title">Operation Rough Rider — Sustained US Airstrikes on Iran-Proxy Houthi Forces in Yemen</div>
-          <div class="event-desc">The Trump administration authorized an expanded, sustained air campaign against Houthi military infrastructure in Yemen. US forces conducted multiple weeks of carrier-based and B-2 Spirit strikes from Diego Garcia, targeting Houthi weapons depots, missile launch sites, and command nodes. Houthis are designated as a US-sanctioned Iranian proxy that had disrupted global shipping since October 2023. The Pentagon sought emergency supplemental appropriations to sustain the operational tempo. Costs include over 200 Tomahawk cruise missiles (~$2M each), B-2 sorties, and carrier air wing operations.</div>
-          <div class="event-cost">Estimated total Operation Rough Rider cost: $1.5–2.5B · Iran-proxy conflict costs included in this tracker</div>
+          <div class="event-title">Operation Rough Rider — US airstrikes on Iran-proxy Houthi forces in Yemen</div>
+          <div class="event-desc">The Trump administration authorized a sustained air campaign against Houthi military infrastructure in Yemen. The Houthis are a designated US-sanctioned Iranian proxy that had been disrupting global shipping since October 2023. US forces flew B-2 Spirit sorties from Diego Garcia and carrier-based strikes targeting Houthi weapons depots, missile launch sites, and command nodes. The Pentagon sought emergency supplemental appropriations to sustain the operational tempo. Costs included Tomahawk cruise missiles at ~$2M each (current Block V procurement), B-2 sortie costs, and carrier air wing operations.</div>
+          <div class="event-cost">Estimated Operation Rough Rider cost: $1.5–2.5B · Iran-proxy costs included in this tracker</div>
           <div class="event-sources">
-            <a class="event-source-link" href="https://www.csis.org/analysis/operation-rough-rider" target="_blank" rel="noopener">CSIS Analysis</a>
-            <a class="event-source-link" href="https://breakingdefense.com" target="_blank" rel="noopener">Breaking Defense</a>
+            <a class="event-source-link" href="https://www.csis.org/programs/middle-east-program/houthi-threat" target="_blank" rel="noopener">CSIS: Houthi Threat</a>
+            <a class="event-source-link" href="https://breakingdefense.com/tag/houthis/" target="_blank" rel="noopener">Breaking Defense</a>
           </div>
         </div>
 
-        <!-- 12-Day War -->
         <div class="event-item major">
           <div class="event-date">June 13–24, 2025</div>
           <div class="event-title">The Twelve-Day War — Iran vs. Israel: US depletes 14% of THAAD stockpile</div>
-          <div class="event-desc">Israel launched surprise airstrikes on Iranian military and nuclear facilities on June 13, 2025 ("Operation Rising Lion"). Iran retaliated with 550+ ballistic missiles and 1,000+ drones over 12 days. US forces intercepted Iranian attacks, expending approximately 92 THAAD interceptors at ~$12.7M each — roughly 14% of the total US THAAD stockpile of ~632 interceptors. Additional SM-3, Patriot PAC-3, and SM-6 expenditures brought total US air defense costs to $2.7–4.7B for the 12-day window (JINSA, July 2025). The Pentagon warned restocking will take 3–8 years at current production rates.</div>
-          <div class="event-cost">THAAD interceptors: 92 × $12.7M = $1.17B · Total US air defense costs: $2.7–4.7B (JINSA)</div>
+          <div class="event-desc">Israel launched surprise airstrikes on Iranian military and nuclear facilities on June 13 ("Operation Rising Lion"). Iran retaliated with 550+ ballistic missiles and 1,000+ drones over 12 days. US forces expended approximately 92 THAAD interceptors at ~$12.7M each — roughly 14% of the total US THAAD stockpile (~632 interceptors). Additional SM-3, Patriot PAC-3, and SM-6 expenditures brought total US air defense costs to $2.7–4.7B for the 12-day window (JINSA, July 2025). The Pentagon warned restocking will take 3–8 years at current production rates.</div>
+          <div class="event-cost">THAAD alone: 92 × $12.7M = $1.17B · Total US air defense: $2.7–4.7B (JINSA)</div>
           <div class="event-sources">
             <a class="event-source-link" href="https://en.wikipedia.org/wiki/Twelve-Day_War" target="_blank" rel="noopener">Wikipedia: Twelve-Day War</a>
-            <a class="event-source-link" href="https://jinsa.org/jinsa_report/insights-from-12-day-war/" target="_blank" rel="noopener">JINSA: Insights</a>
+            <a class="event-source-link" href="https://jinsa.org/jinsa_report/insights-from-12-day-war/" target="_blank" rel="noopener">JINSA Insights</a>
             <a class="event-source-link" href="https://jinsa.org/wp-content/uploads/2025/07/Cost-Estimates-During-the-U.S.-Israel-Iran-War-07-21-25.pdf" target="_blank" rel="noopener">JINSA Cost Report (PDF)</a>
           </div>
         </div>
 
-        <!-- Operation Midnight Hammer -->
         <div class="event-item major">
           <div class="event-date">June 22, 2025</div>
           <div class="event-title">Operation Midnight Hammer — First direct US strikes on Iranian nuclear facilities</div>
-          <div class="event-desc">US forces struck Iran's three main nuclear facilities at Fordow, Natanz, and Isfahan. Seven B-2 Spirit stealth bombers departed Diego Garcia, each carrying two GBU-57A/B Massive Ordnance Penetrators (MOPs) — the largest conventional bomb in the US arsenal at ~$3.5M each. Tomahawk missiles were fired from a submarine simultaneously. The attack destroyed significant nuclear infrastructure and marked the first direct US military action against Iran. A single B-2 round-trip runs ~30 flight hours at ~$130,000/hr per USAF fact sheet.</div>
-          <div class="event-cost">14 GBU-57 MOPs: ~$49M · 7 B-2 sorties (~30 hr each): ~$27M · Tomahawks: est. $50–100M · Total day-1 est.: $150–300M</div>
+          <div class="event-desc">Seven B-2 Spirit stealth bombers departed Diego Garcia, each carrying two GBU-57A/B Massive Ordnance Penetrators (MOPs) — 14 bombs total. Tomahawk missiles were fired simultaneously from a submarine. The strikes targeted Fordow, Natanz, and Isfahan and marked the first direct US military action against Iran. B-2 round-trip from Diego Garcia is approximately 30 flight hours at ~$130,000/hr (USAF direct operating cost). GBU-57 MOP unit costs vary significantly by production lot and contract year (reported range: $3.5M–$14M; early contracts were far more expensive).</div>
+          <div class="event-cost">7 B-2 sorties (~30 hr each): ~$27M · Tomahawks: est. $50–100M · Total day-1 est.: $150–300M+</div>
           <div class="event-sources">
             <a class="event-source-link" href="https://en.wikipedia.org/wiki/United_States_strikes_on_Iranian_nuclear_sites" target="_blank" rel="noopener">Wikipedia</a>
             <a class="event-source-link" href="https://www.csis.org/analysis/what-operation-midnight-hammer-means-future-irans-nuclear-ambitions" target="_blank" rel="noopener">CSIS Analysis</a>
@@ -946,12 +195,11 @@
           </div>
         </div>
 
-        <!-- Sanctions snapback -->
         <div class="event-item">
           <div class="event-date">September 27, 2025</div>
           <div class="event-title">UN sanctions snapback — comprehensive Iran nuclear sanctions reimposed</div>
-          <div class="event-desc">The UK, France, and Germany (the "E3") formally invoked the JCPOA UN snapback mechanism on August 28, 2025, citing Iran's "significant non-performance." After the mandatory 30-day notice period, UN sanctions were fully reimposed effective September 27, 2025. The US, which had already reimposed its own bilateral sanctions, welcomed the multilateral action. Elevated US military posture in the Persian Gulf continued; the US maintained 2 carrier strike groups on rotation in the region at a combined cost of approximately $13M/day in ship operations alone.</div>
-          <div class="event-cost">Ongoing theater baseline: $17–30M/day (pre-Epic Fury) · 2 CSG deployment: $13M/day in ship ops</div>
+          <div class="event-desc">The UK, France, and Germany (the "E3") formally invoked the JCPOA UN snapback mechanism on August 28, 2025. After the mandatory 30-day notice period, UN sanctions were fully reimposed on September 27, 2025. The US, which had already reimposed its own bilateral sanctions, welcomed the action. Elevated US military posture continued; 2 carrier strike groups remained on rotation in the region at ~$13M/day combined in ship operations alone.</div>
+          <div class="event-cost">Ongoing theater baseline (pre-Epic Fury): $17–30M/day · 2 CSG ship ops: ~$13M/day</div>
           <div class="event-sources">
             <a class="event-source-link" href="https://www.state.gov/releases/office-of-the-spokesperson/2025/09/completion-of-un-sanctions-snapback-on-iran/" target="_blank" rel="noopener">US State Dept</a>
             <a class="event-source-link" href="https://www.consilium.europa.eu/en/press/press-releases/2025/09/29/iran-sanctions-snapback-council-reimposes-restrictive-measures/" target="_blank" rel="noopener">EU Council</a>
@@ -959,48 +207,50 @@
           </div>
         </div>
 
-        <!-- CSG Buildup -->
         <div class="event-item notable">
           <div class="event-date">Late January 2026</div>
           <div class="event-title">Largest US Middle East naval buildup since 2003 — 2 carrier strike groups repositioned</div>
-          <div class="event-desc">USS Abraham Lincoln (CVN-72) and USS Gerald R. Ford (CVN-78) Carrier Strike Groups were both redirected to the Middle East, the largest US naval deployment to the region since the 2003 Iraq invasion. Each carrier strike group costs approximately $6.5M per day to operate in theater (ship fuel, maintenance, air wing hours, logistics). With both CSGs running simultaneously, the daily ship-operations cost alone reached ~$13M/day — before aircraft sorties, missile expenditures, or support logistics.</div>
-          <div class="event-cost">2 CSG daily operations: ~$13M/day ship costs · Theater total with forces: ~$40–80M/day</div>
+          <div class="event-desc">Two US carrier strike groups were repositioned to the Middle East — the largest US naval deployment to the region since the 2003 Iraq invasion. Each carrier strike group costs approximately $6.5M per day in ship operations in theater (fuel, maintenance, air wing hours, logistics), for a combined ~$13M/day before aircraft sorties, missiles, or support logistics are counted.</div>
+          <div class="event-cost">2 CSG daily ship ops: ~$13M/day · Theater total (all forces): ~$40–80M/day</div>
           <div class="event-sources">
             <a class="event-source-link" href="https://news.usni.org" target="_blank" rel="noopener">USNI News</a>
           </div>
         </div>
 
-        <!-- Operation Epic Fury -->
         <div class="event-item major">
           <div class="event-date">February 28, 2026</div>
-          <div class="event-title">Operation Epic Fury — 1,000+ Iranian targets hit in first 24 hours</div>
-          <div class="event-desc">The US and Israel launched coordinated operations "Epic Fury" (DoD) and "Roaring Lion" (IDF), striking over 1,000 Iranian military targets in the first 24 hours. Weapons included B-2 Spirit bombers from Diego Garcia, Tomahawk cruise missiles (~$2M each, current Block V procurement) from submarines and surface ships, HIMARS rockets, AI-guided loitering munitions (~$35,000 each), and F-35C sorties from carrier strike groups. Supreme Leader Khamenei was killed. Three US service members were killed in action in the first 24 hours.</div>
+          <div class="event-title">Operation Epic Fury — 1,000+ Iranian targets hit in the first 24 hours</div>
+          <div class="event-desc">The US and Israel launched coordinated strikes — "Epic Fury" (DoD) and "Roaring Lion" (IDF) — hitting over 1,000 Iranian military targets in the first 24 hours. Weapons included B-2 bombers from Diego Garcia, Tomahawk cruise missiles (~$2M each per current Block V contracts) from submarines and surface ships, HIMARS rockets, AI-guided loitering munitions, and F-35C sorties from carrier strike groups. Supreme Leader Khamenei was killed. Three US service members were killed in action in the first 24 hours.</div>
           <div class="event-cost">Day-1 munitions estimate: $1–2B · Ongoing active operations rate: ~$200M/day</div>
           <div class="event-sources">
             <a class="event-source-link" href="https://news.usni.org" target="_blank" rel="noopener">USNI News</a>
           </div>
         </div>
 
-        <!-- March 1 -->
         <div class="event-item major">
           <div class="event-date">March 1, 2026</div>
           <div class="event-title">4th US service member killed; operations continue</div>
-          <div class="event-desc">A 4th US service member was killed in action. President Trump stated more casualties were "likely" while pledging to continue the operation, describing it as "not Iraq, not endless." US destroyers and submarines continued Tomahawk salvos targeting Iranian military and Revolutionary Guard infrastructure.</div>
+          <div class="event-desc">A 4th US service member was killed in action. President Trump stated more casualties were "likely" while pledging to continue, describing the operation as "not Iraq, not endless." US destroyers and submarines continued Tomahawk salvos targeting Iranian military and Revolutionary Guard infrastructure.</div>
           <div class="event-cost">Cumulative 2-day operational cost estimate: $2–4B</div>
         </div>
 
-        <!-- March 2 -->
         <div class="event-item major">
           <div class="event-date">March 2, 2026</div>
           <div class="event-title">Friendly fire: Kuwait downs 3 US F-15s · Hezbollah opens a third front</div>
-          <div class="event-desc">Three US Air Force F-15E Strike Eagles were shot down by Kuwaiti air defense systems in a friendly fire incident in the crowded operational airspace. All six aircrew ejected and were recovered in stable condition. CENTCOM acknowledged Kuwait's cooperation in the investigation. At current F-15EX replacement cost (~$94M per airframe), the loss represents ~$282M in aircraft alone, though original F-15E procurement costs were ~$31M in FY1998 dollars. Separately, Hezbollah opened a sustained assault on Israel's northern border, widening the conflict to a third active front.</div>
-          <div class="event-cost">3 F-15E airframes lost: ~$93M (original) / ~$282M (replacement value) · Total running: ~$16B</div>
+          <div class="event-desc">Three US Air Force F-15E Strike Eagles were shot down by Kuwaiti air defense systems in a friendly fire incident in the crowded operational airspace. All six aircrew ejected safely and were recovered in stable condition. CENTCOM acknowledged Kuwait's cooperation. Original F-15E procurement cost: ~$31M per airframe (FY1998 dollars); current F-15EX replacement cost: ~$94M per airframe. Separately, Hezbollah opened a sustained assault on Israel's northern border, widening the conflict to a third active front.</div>
+          <div class="event-cost">3 F-15E airframes: ~$93M original / ~$282M replacement value · Running total: ~$16B</div>
           <div class="event-sources">
             <a class="event-source-link" href="https://en.wikipedia.org/wiki/McDonnell_Douglas_F-15E_Strike_Eagle" target="_blank" rel="noopener">F-15E Wikipedia</a>
-            <a class="event-source-link" href="https://www.airandspaceforces.com/new-acquisition-report-f-15ex-unit-cost/" target="_blank" rel="noopener">F-15EX Cost (Air Force Mag)</a>
+            <a class="event-source-link" href="https://www.airandspaceforces.com/new-acquisition-report-f-15ex-unit-cost/" target="_blank" rel="noopener">F-15EX Cost</a>
           </div>
         </div>
 
+      </div>
+
+      <div class="contribute-cta">
+        <a href="https://github.com/koverda/iranwarcost.com/issues/new?labels=data&title=Cost+item+suggestion" target="_blank" rel="noopener">
+          + Know a documented cost item missing from this timeline? Submit it on GitHub →
+        </a>
       </div>
     </div>
   </section>
@@ -1012,19 +262,19 @@
     <div class="section-inner">
       <p class="section-eyebrow">Your Share</p>
       <h2 class="section-title">What Each US Taxpayer Has Paid</h2>
-      <p class="section-desc">Divided equally across approximately 150 million US individual tax filers, here is what this conflict has cost each American taxpayer — and what it is costing right now. Source: IRS Statistics of Income, ~150M individual returns filed annually.</p>
+      <p class="section-desc">Divided equally across approximately 150 million US individual tax filers, here is what this conflict has cost each taxpayer — and what it is costing right now. (<a href="https://www.irs.gov/statistics" target="_blank" rel="noopener" style="color:var(--blue)">IRS Statistics of Income</a>)</p>
 
       <div class="taxpayer-highlight">
         <div class="th-label">Per US Taxpayer — Total Since January 2025</div>
         <span id="taxpayer-big">$107</span>
-        <div class="th-sub">Updating in real time &bull; Based on 150M US taxpayers &bull; <a href="https://www.irs.gov/statistics" target="_blank" rel="noopener" style="color:var(--blue)">IRS Statistics</a></div>
+        <div class="th-sub">Updating in real time &bull; Based on 150M US taxpayers</div>
       </div>
 
       <div class="taxpayer-grid">
         <div class="taxpayer-card">
           <div class="tc-period">Per Day</div>
           <div class="tc-amount" id="tc-daily">$1.33</div>
-          <div class="tc-desc">At current active ops rate ($200M/day ÷ 150M taxpayers)</div>
+          <div class="tc-desc">At active ops rate ($200M/day ÷ 150M taxpayers)</div>
         </div>
         <div class="taxpayer-card">
           <div class="tc-period">Per Week</div>
@@ -1039,17 +289,17 @@
         <div class="taxpayer-card">
           <div class="tc-period">Per Year (annualized)</div>
           <div class="tc-amount" id="tc-annual">$487</div>
-          <div class="tc-desc">Projected annual cost at current rate — higher than median Iraq War year</div>
+          <div class="tc-desc">Projected annual cost per taxpayer at current rate</div>
         </div>
       </div>
 
       <div class="compare-section">
-        <div class="compare-title">War cost per taxpayer ($107) compared to annual federal program costs per taxpayer</div>
+        <div class="compare-title">War cost per taxpayer ($107 total) vs. annual federal program cost per taxpayer</div>
 
         <div class="compare-row">
           <div>
             <div class="compare-row-label">War with Iran — Total since Jan 2025</div>
-            <div class="compare-row-sublabel">$16B total ÷ 150M taxpayers</div>
+            <div class="compare-row-sublabel">$16B ÷ 150M taxpayers</div>
           </div>
           <div class="compare-bar-row">
             <div class="compare-bar-track">
@@ -1062,7 +312,7 @@
         <div class="compare-row">
           <div>
             <div class="compare-row-label">National Science Foundation (annual)</div>
-            <div class="compare-row-sublabel">$9B budget ÷ 150M taxpayers</div>
+            <div class="compare-row-sublabel">~$9B FY2025 ÷ 150M taxpayers</div>
           </div>
           <div class="compare-bar-row">
             <div class="compare-bar-track">
@@ -1075,7 +325,7 @@
         <div class="compare-row">
           <div>
             <div class="compare-row-label">EPA — Entire Annual Budget</div>
-            <div class="compare-row-sublabel">~$6B FY2025 budget ÷ 150M taxpayers</div>
+            <div class="compare-row-sublabel">~$6B FY2025 ÷ 150M taxpayers</div>
           </div>
           <div class="compare-bar-row">
             <div class="compare-bar-track">
@@ -1114,13 +364,13 @@
         <div class="comparison-card">
           <span class="cc-icon">🏥</span>
           <div class="cc-number">1.2 million</div>
-          <div class="cc-label">Americans' full annual healthcare premiums covered (avg. $13,500/yr individual cost)</div>
-          <div class="cc-source">Source: KFF Health System Tracker, 2024</div>
+          <div class="cc-label">Americans' total annual healthcare costs covered (avg. $13,493/person — US per-capita health expenditure, 2023)</div>
+          <div class="cc-source">Source: CMS National Health Expenditure Accounts, 2023</div>
         </div>
         <div class="comparison-card">
           <span class="cc-icon">🎓</span>
-          <div class="cc-number">705,000+</div>
-          <div class="cc-label">Students' full one-year in-state tuition at public university (~$22,700/yr)</div>
+          <div class="cc-number">1.38 million</div>
+          <div class="cc-label">Students' full-year in-state tuition &amp; fees at a public four-year university ($11,610/yr avg.)</div>
           <div class="cc-source">Source: College Board Trends in College Pricing, 2024–25</div>
         </div>
         <div class="comparison-card">
@@ -1132,19 +382,19 @@
         <div class="comparison-card">
           <span class="cc-icon">👩‍🏫</span>
           <div class="cc-number">327,000</div>
-          <div class="cc-label">Public school teachers hired for one full year at $49,000 avg. salary</div>
+          <div class="cc-label">Public school teachers hired for one full year at the national median salary of $49,000</div>
           <div class="cc-source">Source: NCES National Teacher and Principal Survey, 2024</div>
         </div>
         <div class="comparison-card">
           <span class="cc-icon">👶</span>
           <div class="cc-number">9.4 million</div>
-          <div class="cc-label">Children insured for one year through CHIP at ~$1,700 per child</div>
+          <div class="cc-label">Children insured for one year through the Children's Health Insurance Program (CHIP) at ~$1,700 per child</div>
           <div class="cc-source">Source: CMS CHIP Expenditure Data, FY2024</div>
         </div>
         <div class="comparison-card">
           <span class="cc-icon">🍎</span>
           <div class="cc-number">~1.9 years</div>
-          <div class="cc-label">Free school lunches for every US K–12 student (~49M students, ~$170/yr average program cost)</div>
+          <div class="cc-label">Free school lunches for every US K–12 student (~49M students, ~$170/yr average program cost per student)</div>
           <div class="cc-source">Source: USDA Food and Nutrition Service, FY2024</div>
         </div>
         <div class="comparison-card">
@@ -1155,14 +405,14 @@
         </div>
         <div class="comparison-card">
           <span class="cc-icon">🎒</span>
-          <div class="cc-number">~2.1 years</div>
-          <div class="cc-label">The entire federal Pell Grant program for low-income college students (~$7.7B/yr)</div>
-          <div class="cc-source">Source: Dept. of Education Federal Student Aid, FY2024</div>
+          <div class="cc-number">3.3 million</div>
+          <div class="cc-label">Pell Grant recipients funded for one academic year at the average grant of $4,900 per student</div>
+          <div class="cc-source">Source: Dept. of Education Federal Student Aid, FY2024 (avg. Pell Grant: $4,900; ~6.7M recipients)</div>
         </div>
       </div>
 
       <div class="jobs-callout">
-        <strong>Jobs and economic output:</strong> Research published by multiple economic institutes finds that military spending creates an estimated <strong>5 direct jobs per $1 million</strong> spent. The same investment in education creates approximately <strong>13 jobs per $1 million</strong>, and healthcare creates <strong>9 jobs per $1 million</strong>. Had $16 billion been redirected to education, it could have supported an estimated <strong>128,000 more jobs</strong> than the equivalent military expenditure. <em>(Source: SIPRI Military Spending and Economic Output, 2024; note: these figures vary across methodologies and economic conditions.)</em>
+        <strong>Jobs and economic output:</strong> Research finds that military spending creates an estimated <strong>5 direct jobs per $1 million</strong>. The same investment in education creates approximately <strong>13 jobs per $1 million</strong>. Had $16 billion been redirected to education, it could have supported an estimated <strong>128,000 additional jobs</strong> beyond what the equivalent military expenditure generates. <em>(Source: SIPRI Military Spending and Economic Output, 2024; note: job multiplier figures vary across methodologies.)</em>
       </div>
     </div>
   </section>
@@ -1174,12 +424,12 @@
     <div class="section-inner">
       <p class="section-eyebrow">Transparency</p>
       <h2 class="section-title">Sources &amp; Methodology</h2>
-      <p class="section-desc">This site presents cost estimates based on publicly available data from government agencies, congressional research, and credible defense analysis organizations. It does not advocate for or against the conflict. All figures are estimates; precise totals are not publicly disclosed by the US government.</p>
+      <p class="section-desc">All figures are estimates derived from publicly available data. This site does not advocate for or against the conflict — it presents documented cost information. Precise totals are not publicly disclosed by the US government.</p>
 
       <ul class="sources-list">
         <li>
           <div class="src-org">JINSA — Missile and Interceptor Cost Estimates During the US–Israel–Iran War (July 21, 2025)</div>
-          <div class="src-desc">Primary source for weapons unit costs and THAAD stockpile depletion figures. Confirms $12.7M per THAAD interceptor and $2.7–4.7B total US air defense costs during the Twelve-Day War. <a href="https://jinsa.org/wp-content/uploads/2025/07/Cost-Estimates-During-the-U.S.-Israel-Iran-War-07-21-25.pdf" target="_blank" rel="noopener">Full PDF Report</a> · <a href="https://jinsa.org/jinsa_report/missile-and-interceptor-cost-estimates-during-the-u-s-israel-iran-war/" target="_blank" rel="noopener">Summary Page</a></div>
+          <div class="src-desc">Primary source for weapons unit costs and THAAD stockpile depletion: $12.7M per THAAD interceptor, $2.7–4.7B total US air defense costs during the Twelve-Day War. <a href="https://jinsa.org/wp-content/uploads/2025/07/Cost-Estimates-During-the-U.S.-Israel-Iran-War-07-21-25.pdf" target="_blank" rel="noopener">Full PDF</a> · <a href="https://jinsa.org/jinsa_report/missile-and-interceptor-cost-estimates-during-the-u-s-israel-iran-war/" target="_blank" rel="noopener">Summary</a></div>
         </li>
         <li>
           <div class="src-org">US Congress — H.R.8034 Israel Security Supplemental Appropriations Act, 2024</div>
@@ -1187,35 +437,35 @@
         </li>
         <li>
           <div class="src-org">US Congress — H.R.1968 Full-Year Continuing Appropriations and Extensions Act, 2025</div>
-          <div class="src-desc">FY2025 baseline FMF for Israel: $3.3B plus $450M offshore procurement. <a href="https://www.congress.gov/bill/119th-congress/house-bill/1968/text" target="_blank" rel="noopener">Congress.gov</a> · <a href="https://www.congress.gov/crs-product/RL33222" target="_blank" rel="noopener">CRS Report RL33222 (US Foreign Aid to Israel)</a></div>
+          <div class="src-desc">FY2025 baseline FMF for Israel: $3.3B plus $450M offshore procurement. <a href="https://www.congress.gov/bill/119th-congress/house-bill/1968/text" target="_blank" rel="noopener">Congress.gov</a> · <a href="https://www.congress.gov/crs-product/RL33222" target="_blank" rel="noopener">CRS Report RL33222</a></div>
         </li>
         <li>
           <div class="src-org">Wikipedia — Twelve-Day War (June 13–24, 2025)</div>
-          <div class="src-desc">Documented summary of the June 2025 Iran–Israel armed conflict including casualty figures, weapons used, and ceasefire date. <a href="https://en.wikipedia.org/wiki/Twelve-Day_War" target="_blank" rel="noopener">Twelve-Day War article</a></div>
+          <div class="src-desc">Iran–Israel armed conflict documentation including weapons used, casualty figures, and ceasefire date. <a href="https://en.wikipedia.org/wiki/Twelve-Day_War" target="_blank" rel="noopener">Twelve-Day War article</a></div>
         </li>
         <li>
           <div class="src-org">CSIS — Operation Midnight Hammer Analysis</div>
-          <div class="src-desc">Expert analysis of the June 22, 2025 US strikes on Iranian nuclear facilities at Fordow, Natanz, and Isfahan. <a href="https://www.csis.org/analysis/what-operation-midnight-hammer-means-future-irans-nuclear-ambitions" target="_blank" rel="noopener">CSIS Analysis</a></div>
+          <div class="src-desc">Expert analysis of the June 22, 2025 US strikes on Iranian nuclear facilities. <a href="https://www.csis.org/analysis/what-operation-midnight-hammer-means-future-irans-nuclear-ambitions" target="_blank" rel="noopener">CSIS Analysis</a></div>
         </li>
         <li>
-          <div class="src-org">US State Department / EU Council — UN Sanctions Snapback Completion (September 2025)</div>
-          <div class="src-desc">Confirmation of the E3-triggered JCPOA snapback mechanism and reimposition of UN sanctions effective September 27, 2025. <a href="https://www.state.gov/releases/office-of-the-spokesperson/2025/09/completion-of-un-sanctions-snapback-on-iran/" target="_blank" rel="noopener">State Dept Statement</a> · <a href="https://www.consilium.europa.eu/en/press/press-releases/2025/09/29/iran-sanctions-snapback-council-reimposes-restrictive-measures/" target="_blank" rel="noopener">EU Council</a></div>
+          <div class="src-org">US State Department / EU Council — UN Sanctions Snapback (September 2025)</div>
+          <div class="src-desc">E3-triggered JCPOA snapback; UN sanctions effective September 27, 2025. <a href="https://www.state.gov/releases/office-of-the-spokesperson/2025/09/completion-of-un-sanctions-snapback-on-iran/" target="_blank" rel="noopener">State Dept</a> · <a href="https://www.consilium.europa.eu/en/press/press-releases/2025/09/29/iran-sanctions-snapback-council-reimposes-restrictive-measures/" target="_blank" rel="noopener">EU Council</a></div>
         </li>
         <li>
           <div class="src-org">US Air Force — B-2 Spirit Fact Sheet</div>
-          <div class="src-desc">Official USAF cost-per-flying-hour data (~$130,000/hr direct operating cost) used in strike cost calculations. <a href="https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104482/b-2-spirit/" target="_blank" rel="noopener">AF.mil Fact Sheet</a></div>
-        </li>
-        <li>
-          <div class="src-org">Congressional Budget Office (CBO)</div>
-          <div class="src-desc">Federal appropriations data, foreign military aid tracking, and bill cost estimates. <a href="https://www.cbo.gov/" target="_blank" rel="noopener">cbo.gov</a></div>
+          <div class="src-desc">Official cost-per-flying-hour: ~$130,000/hr (direct operating cost, lower bound). <a href="https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104482/b-2-spirit/" target="_blank" rel="noopener">AF.mil</a></div>
         </li>
         <li>
           <div class="src-org">Costs of War Project — Brown University Watson Institute</div>
-          <div class="src-desc">Primary methodology reference for total US war spending, including veteran care and debt costs not yet reflected in the running counter. <a href="https://costsofwar.watson.brown.edu/" target="_blank" rel="noopener">costsofwar.watson.brown.edu</a></div>
+          <div class="src-desc">Methodology reference for total war costs including veteran care and debt obligations not reflected in the live counter. <a href="https://costsofwar.watson.brown.edu/" target="_blank" rel="noopener">costsofwar.watson.brown.edu</a></div>
         </li>
         <li>
           <div class="src-org">IRS Statistics of Income</div>
-          <div class="src-desc">Approximately 150 million individual tax returns filed annually — basis for per-taxpayer calculations. <a href="https://www.irs.gov/statistics" target="_blank" rel="noopener">irs.gov/statistics</a></div>
+          <div class="src-desc">~150 million individual returns filed annually — basis for all per-taxpayer calculations. <a href="https://www.irs.gov/statistics" target="_blank" rel="noopener">irs.gov/statistics</a></div>
+        </li>
+        <li>
+          <div class="src-org">Congressional Budget Office (CBO)</div>
+          <div class="src-desc">Federal appropriations data and bill cost estimates. <a href="https://www.cbo.gov/" target="_blank" rel="noopener">cbo.gov</a></div>
         </li>
         <li>
           <div class="src-org">SIPRI — Stockholm International Peace Research Institute</div>
@@ -1224,13 +474,13 @@
       </ul>
 
       <div class="methodology-note">
-        <strong>Methodology — Cost Breakdown (since January 1, 2025):</strong>
+        <strong>Cost Breakdown — What makes up the $16B anchor (since January 1, 2025):</strong>
 
         <table class="cost-table">
           <thead>
             <tr>
-              <th>Cost Component</th>
-              <th>Source</th>
+              <th>Component</th>
+              <th>Primary Source</th>
               <th>Estimate</th>
             </tr>
           </thead>
@@ -1241,37 +491,37 @@
               <td>$3.3B</td>
             </tr>
             <tr>
-              <td>US air defense costs — Twelve-Day War (June 2025) THAAD, SM-3, PAC-3, SM-6 interceptors</td>
+              <td>US air defense — Twelve-Day War (THAAD, SM-3, PAC-3, SM-6)</td>
               <td>JINSA July 2025 Report</td>
               <td>~$3.5B</td>
             </tr>
             <tr>
-              <td>Operation Midnight Hammer (June 22, 2025) — B-2 sorties, GBU-57 MOPs, Tomahawks</td>
+              <td>Operation Midnight Hammer — B-2 sorties, GBU-57 MOPs, Tomahawks (June 22)</td>
               <td>CSIS, USAF Fact Sheet, unit costs</td>
               <td>~$400M</td>
             </tr>
             <tr>
-              <td>Operation Rough Rider (Mar–May 2025) — Iran-proxy Houthi strikes</td>
+              <td>Operation Rough Rider — Iran-proxy (Houthi) strikes, Mar–May 2025</td>
               <td>DoD / media estimates</td>
               <td>~$1.5B</td>
             </tr>
             <tr>
-              <td>FY2025 weapons drawdown transfers to Israel (supplemental drawdown)</td>
+              <td>FY2025 weapons drawdown transfers to Israel</td>
               <td>Pentagon DSCA notifications</td>
               <td>~$1B</td>
             </tr>
             <tr>
-              <td>US theater force presence (2 CSG rotations, forward forces) Jul 2025–Jan 2026</td>
+              <td>US theater force presence, Jul 2025–Jan 2026 (2 CSG rotations)</td>
               <td>USNI News, DoD cost-per-day estimates</td>
               <td>~$2B</td>
             </tr>
             <tr>
-              <td>Operation Epic Fury (Feb 28–Mar 2, 2026) — 3 days at ~$200M/day + surge munitions</td>
+              <td>Operation Epic Fury — 3 days at ~$200M/day + surge munitions (Feb 28–Mar 2)</td>
               <td>Published unit costs, DoD statements</td>
               <td>~$4.3B</td>
             </tr>
             <tr>
-              <td><strong>Total anchor — March 2, 2026</strong></td>
+              <td><strong>Total anchor — March 2, 2026 UTC midnight</strong></td>
               <td></td>
               <td><strong>~$16B</strong></td>
             </tr>
@@ -1279,274 +529,28 @@
         </table>
 
         <br>
-        <strong>Counter mechanics:</strong> The running total is anchored at <strong>$16,000,000,000</strong> as of <strong>March 2, 2026 (UTC midnight)</strong>. It increments at <strong>$2,315 per second</strong> (~$200M/day), the estimated active combat operations rate since Operation Epic Fury began February 28, 2026. This rate reflects sustained Tomahawk salvos, carrier air wing operations, and logistics. For context: the Iraq War averaged ~$300–400M/day at its 2007 peak; the June 2025 Twelve-Day War peaked at $400–600M/day during the most intensive exchanges.
+        <strong>Counter mechanics:</strong> Anchored at $16,000,000,000 on March 2, 2026 (UTC midnight), incrementing at $2,315/second (~$200M/day). This reflects the active operations rate since Epic Fury began February 28. The Iraq War averaged ~$300–400M/day at its 2007 peak; the Twelve-Day War peaked at $400–600M/day during peak exchanges.
         <br><br>
-        <strong>What is included:</strong> Direct US military operational costs; weapons, munitions, and air defense systems expended; FMF baseline appropriations; weapons drawdowns to Israel for Iran-conflict operations; Iran-proxy (Houthi) operation costs.
+        <strong>What is included:</strong> Direct US military operational costs; air defense interceptors expended; FMF appropriations; weapons drawdowns to Israel for Iran-related operations; Iran-proxy (Houthi) operation costs.
         <br><br>
-        <strong>What is not included:</strong> Long-term veteran healthcare and disability costs (historically 30–40% of total war costs, per Brown University Costs of War Project); interest on war-related debt; full economic impact of oil market disruption (crude oil prices rose ~35% following Feb 28 strikes); intelligence operations; classified programs. The true total cost to taxpayers over 10–20 years will be substantially higher than what this counter reflects.
+        <strong>What is not included:</strong> Long-term veteran healthcare and disability (historically 30–40% of total war cost, per Brown University Costs of War Project); interest on war-related debt; intelligence operations; full economic impact of oil market disruption (~35% crude price increase following Feb 28 strikes). The true 10–20 year cost to taxpayers will substantially exceed what this counter shows.
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>Data anchored: March 2, 2026 &bull; All figures are estimates derived from publicly available data</p>
-    <p>This site is non-partisan and presents documented cost information without editorial advocacy for or against the conflict.</p>
+    <p>Data anchored: March 2, 2026 · All figures are estimates from publicly available data</p>
+    <p>This site is non-partisan. It presents documented cost information without advocacy.</p>
     <p style="margin-top:0.4rem">
-      <a href="https://github.com/koverda/iranwarcost.com/issues" target="_blank" rel="noopener">Suggest a correction or source</a>
-      &bull; Built with open data from JINSA, CBO, Brown University, SIPRI, USAF, State Dept
+      Built with <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a>
+      · Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>
+      · <a href="https://github.com/koverda/iranwarcost.com" target="_blank" rel="noopener">View source on GitHub</a>
+      · <a href="https://github.com/koverda/iranwarcost.com/issues" target="_blank" rel="noopener">Suggest a correction</a>
     </p>
   </footer>
 
-  <script>
-    // ── COST CONSTANTS ──────────────────────────────────────────────────────────
-    // $16B anchor as of March 2, 2026 UTC midnight
-    // Breakdown in methodology table above (FMF $3.3B + JINSA interceptors $3.5B +
-    // Midnight Hammer $400M + Rough Rider $1.5B + drawdowns $1B + theater $2B + Epic Fury $4.3B)
-    const ANCHOR_DATE     = new Date('2026-03-02T00:00:00Z');
-    const ANCHOR_AMOUNT   = 16_000_000_000;
-    const DOLLARS_PER_SEC = 2314.81;   // $200M/day ÷ 86,400 sec = $2,314.81/sec
-    const US_TAXPAYERS    = 150_000_000;
-    // Daily per-taxpayer at active ops rate
-    const DAILY_PER_TX    = 200_000_000 / US_TAXPAYERS;   // $1.3333/day
-
-    function getCurrentCost() {
-      const elapsedSec = (Date.now() - ANCHOR_DATE.getTime()) / 1000;
-      return ANCHOR_AMOUNT + elapsedSec * DOLLARS_PER_SEC;
-    }
-
-    function getCurrentPerTaxpayer() {
-      return getCurrentCost() / US_TAXPAYERS;
-    }
-
-    // ── FORMAT HELPERS ──────────────────────────────────────────────────────────
-    function fmtUSD(n, decimals = 0) {
-      return '$' + n.toLocaleString('en-US', {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals
-      });
-    }
-
-    // ── HERO COUNTER (CountUp.js animated start, then live ticks) ───────────────
-    const totalEl    = document.getElementById('total-counter');
-    const taxpayerEl = document.getElementById('taxpayer-counter');
-
-    const startVal   = getCurrentCost();
-    const txStartVal = getCurrentPerTaxpayer();
-
-    const cuTotal = new countUp.CountUp('total-counter', startVal, {
-      startVal:      startVal - DOLLARS_PER_SEC * 3,
-      duration:      2.5,
-      useGrouping:   true,
-      separator:     ',',
-      prefix:        '$',
-      decimalPlaces: 0,
-    });
-
-    const cuTaxpayer = new countUp.CountUp('taxpayer-counter', txStartVal, {
-      startVal:      txStartVal - (DAILY_PER_TX / 86400) * 3,
-      duration:      2.5,
-      useGrouping:   true,
-      separator:     ',',
-      prefix:        '$',
-      decimalPlaces: 2,
-    });
-
-    if (!cuTotal.error)    cuTotal.start();
-    if (!cuTaxpayer.error) cuTaxpayer.start();
-
-    // After animation, switch to real-time DOM updates
-    setTimeout(() => {
-      setInterval(() => {
-        totalEl.textContent    = fmtUSD(getCurrentCost());
-        taxpayerEl.textContent = fmtUSD(getCurrentPerTaxpayer(), 2);
-      }, 250);
-    }, 3000);
-
-    // ── TAXPAYER SECTION COUNTERS ───────────────────────────────────────────────
-    const taxBig    = document.getElementById('taxpayer-big');
-    const tcDaily   = document.getElementById('tc-daily');
-    const tcWeekly  = document.getElementById('tc-weekly');
-    const tcMonthly = document.getElementById('tc-monthly');
-    const tcAnnual  = document.getElementById('tc-annual');
-
-    function updateTaxpayerSection() {
-      const perTx = getCurrentPerTaxpayer();
-      taxBig.textContent    = fmtUSD(perTx, 2);
-      // Rate cards show the ongoing active-ops rate, not a variable of perTx
-      tcDaily.textContent   = fmtUSD(DAILY_PER_TX, 2);
-      tcWeekly.textContent  = fmtUSD(DAILY_PER_TX * 7, 2);
-      tcMonthly.textContent = fmtUSD(DAILY_PER_TX * 30.44, 2);
-      tcAnnual.textContent  = fmtUSD(DAILY_PER_TX * 365.25, 2);
-    }
-
-    updateTaxpayerSection();
-    setInterval(updateTaxpayerSection, 1000);
-
-    // ── CHART ───────────────────────────────────────────────────────────────────
-    // Cumulative US spending data (2025-only; Y=0 at Jan 1 2025)
-    // Key fixes vs prior version:
-    //   - Added Op. Rough Rider point (March 2025)
-    //   - 12-Day War ends June 24 (not July 5)
-    //   - Anchor updated to $16B
-    const chartData = [
-      { x: '2025-01-01', y: 0 },
-      { x: '2025-03-15', y: 500_000_000 },     // H.R.1968 signed + Rough Rider begins
-      { x: '2025-06-13', y: 2_000_000_000 },   // 12-Day War begins
-      { x: '2025-06-24', y: 7_500_000_000 },   // 12-Day War ends (interceptors + Midnight Hammer)
-      { x: '2025-09-01', y: 9_500_000_000 },   // Snapback + ongoing theater
-      { x: '2025-12-01', y: 12_000_000_000 },
-      { x: '2026-01-29', y: 13_000_000_000 },  // CSG buildup
-      { x: '2026-02-28', y: 14_200_000_000 },  // Epic Fury begins
-      { x: '2026-03-02', y: 16_000_000_000 },  // Anchor point
-    ];
-
-    const annotations = {
-      roughRider: {
-        type: 'line',
-        xMin: '2025-03-15', xMax: '2025-03-15',
-        borderColor: 'rgba(76,201,240,0.4)',
-        borderWidth: 1,
-        borderDash: [3, 3],
-        label: {
-          display: true, content: 'Op. Rough Rider', position: 'start',
-          color: '#4cc9f0', font: { size: 10 },
-          backgroundColor: 'rgba(5,8,16,0.85)',
-          yAdjust: 60,
-        }
-      },
-      war12day: {
-        type: 'line',
-        xMin: '2025-06-13', xMax: '2025-06-13',
-        borderColor: 'rgba(255,209,102,0.5)',
-        borderWidth: 1,
-        borderDash: [4, 3],
-        label: {
-          display: true, content: '12-Day War Begins', position: 'start',
-          color: '#ffd166', font: { size: 10 },
-          backgroundColor: 'rgba(5,8,16,0.85)',
-          yAdjust: 40,
-        }
-      },
-      midnightHammer: {
-        type: 'line',
-        xMin: '2025-06-22', xMax: '2025-06-22',
-        borderColor: 'rgba(255,209,102,0.6)',
-        borderWidth: 1,
-        borderDash: [4, 3],
-        label: {
-          display: true, content: 'Op. Midnight Hammer', position: 'start',
-          color: '#ffd166', font: { size: 10 },
-          backgroundColor: 'rgba(5,8,16,0.85)',
-          yAdjust: 15,
-        }
-      },
-      war12dayEnd: {
-        type: 'line',
-        xMin: '2025-06-24', xMax: '2025-06-24',
-        borderColor: 'rgba(255,209,102,0.3)',
-        borderWidth: 1,
-        borderDash: [4, 3],
-        label: {
-          display: true, content: '12-Day War Ends', position: 'start',
-          color: '#ffd166', font: { size: 10 },
-          backgroundColor: 'rgba(5,8,16,0.85)',
-          yAdjust: -10,
-        }
-      },
-      jan26: {
-        type: 'line',
-        xMin: '2026-01-29', xMax: '2026-01-29',
-        borderColor: 'rgba(76,201,240,0.4)',
-        borderWidth: 1,
-        borderDash: [4, 3],
-        label: {
-          display: true, content: '2 CSGs Deployed', position: 'start',
-          color: '#4cc9f0', font: { size: 10 },
-          backgroundColor: 'rgba(5,8,16,0.85)',
-          yAdjust: 20,
-        }
-      },
-      epicFury: {
-        type: 'line',
-        xMin: '2026-02-28', xMax: '2026-02-28',
-        borderColor: 'rgba(230,57,70,0.8)',
-        borderWidth: 2,
-        label: {
-          display: true, content: 'Op. Epic Fury Begins', position: 'start',
-          color: '#e63946', font: { size: 10, weight: 'bold' },
-          backgroundColor: 'rgba(5,8,16,0.9)',
-          yAdjust: -12,
-        }
-      },
-    };
-
-    const ctx = document.getElementById('spendingChart').getContext('2d');
-
-    const gradient = ctx.createLinearGradient(0, 0, 0, 360);
-    gradient.addColorStop(0, 'rgba(230,57,70,0.30)');
-    gradient.addColorStop(1, 'rgba(230,57,70,0.01)');
-
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        datasets: [{
-          label: 'Cumulative US Spending ($)',
-          data: chartData,
-          parsing: { xAxisKey: 'x', yAxisKey: 'y' },
-          borderColor: '#e63946',
-          borderWidth: 2,
-          pointBackgroundColor: '#e63946',
-          pointRadius: 4,
-          pointHoverRadius: 6,
-          fill: true,
-          backgroundColor: gradient,
-          tension: 0.25,
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        interaction: { mode: 'index', intersect: false },
-        scales: {
-          x: {
-            type: 'time',
-            time: { unit: 'month', displayFormats: { month: 'MMM yy' } },
-            grid: { color: 'rgba(255,255,255,0.03)' },
-            ticks: { color: '#4a5672', font: { size: 10 }, maxRotation: 0 },
-          },
-          y: {
-            grid: { color: 'rgba(255,255,255,0.03)' },
-            ticks: {
-              color: '#4a5672',
-              font: { size: 10 },
-              callback: v => '$' + (v / 1e9).toFixed(0) + 'B',
-            },
-            title: {
-              display: true,
-              text: 'Cumulative Spending (USD)',
-              color: '#4a5672',
-              font: { size: 10 },
-            }
-          }
-        },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            backgroundColor: '#0a0e1c',
-            borderColor: '#1a2238',
-            borderWidth: 1,
-            titleColor: '#dde3f0',
-            bodyColor: '#4a5672',
-            callbacks: {
-              label: ctx => ' $' + (ctx.parsed.y / 1e9).toFixed(2) + ' billion'
-            }
-          },
-          annotation: { annotations }
-        }
-      }
-    });
-  </script>
+  <script src="main.js"></script>
 
 </body>
 </html>
