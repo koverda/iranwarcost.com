@@ -9,7 +9,7 @@
   --gold:     #ffd166;
   --blue:     #4cc9f0;
   --text:     #e8e8e8;
-  --muted:    #505050;
+  --muted:    #8a8a8a;
   --border:   #1e1e1e;
   --border2:  #2a2a2a;
 }
@@ -331,10 +331,10 @@ nav {
 
 .section-desc {
   color: var(--muted);
-  font-size: 0.9rem;
-  max-width: 620px;
+  font-size: 0.92rem;
+  max-width: 640px;
   margin-bottom: 2rem;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 /* ── WHY SECTION ── */
@@ -349,7 +349,7 @@ nav {
 .why-text {
   font-size: 1rem;
   color: var(--text);
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .why-text em {
@@ -423,9 +423,9 @@ nav {
 }
 
 .event-desc {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   color: var(--muted);
-  line-height: 1.65;
+  line-height: 1.7;
   max-width: 720px;
 }
 
@@ -456,6 +456,56 @@ nav {
 }
 
 .event-source-link:hover { border-color: var(--blue); color: #fff; }
+
+/* ── EVENT TWISTY (details/summary) ── */
+.event-details {
+  display: block;
+}
+
+.event-details > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  gap: 0.3rem;
+  align-items: baseline;
+}
+
+.event-details > summary::-webkit-details-marker { display: none; }
+.event-details > summary::marker { display: none; }
+
+.event-details > summary::before {
+  content: '+';
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  line-height: 1.4;
+  transition: color 0.15s;
+  font-weight: 700;
+}
+
+.event-details[open] > summary::before {
+  content: '−';
+  color: var(--red);
+}
+
+.event-details > summary:hover::before {
+  color: var(--text);
+}
+
+/* summary inherits .event-title styles; reset grid child to span correctly */
+.event-details > summary.event-title {
+  margin: 0.2rem 0 0;
+}
+
+.event-body {
+  padding-left: 1.3rem;
+  padding-top: 0.5rem;
+  border-left: 1px solid var(--border2);
+  margin-top: 0.4rem;
+  margin-left: 0.35rem;
+}
 
 /* ── CONTRIBUTE CTA ── */
 .contribute-cta {

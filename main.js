@@ -166,7 +166,7 @@ const annotations = {
       display: true, content: '12-Day War Ends', position: 'start',
       color: '#ffd166', font: { size: 10 },
       backgroundColor: 'rgba(10,10,10,0.9)',
-      yAdjust: -10,
+      yAdjust: 8,
     }
   },
   jan26: {
@@ -179,7 +179,8 @@ const annotations = {
       display: true, content: '2 CSGs Deployed', position: 'start',
       color: '#4cc9f0', font: { size: 10 },
       backgroundColor: 'rgba(10,10,10,0.9)',
-      yAdjust: 20,
+      yAdjust: 30,
+      xAdjust: -60,
     }
   },
   epicFury: {
@@ -191,7 +192,8 @@ const annotations = {
       display: true, content: 'Op. Epic Fury Begins', position: 'start',
       color: '#cc0000', font: { size: 10, weight: 'bold' },
       backgroundColor: 'rgba(10,10,10,0.95)',
-      yAdjust: -12,
+      yAdjust: 8,
+      xAdjust: -70,
     }
   },
 };
@@ -223,24 +225,27 @@ new Chart(ctx, {
     responsive: true,
     maintainAspectRatio: true,
     interaction: { mode: 'index', intersect: false },
+    layout: {
+      padding: { top: 20, right: 100, bottom: 40 },
+    },
     scales: {
       x: {
         type: 'time',
         time: { unit: 'month', displayFormats: { month: 'MMM yy' } },
         grid: { color: 'rgba(255,255,255,0.03)' },
-        ticks: { color: '#505050', font: { size: 10 }, maxRotation: 0 },
+        ticks: { color: '#8a8a8a', font: { size: 10 }, maxRotation: 0 },
       },
       y: {
         grid: { color: 'rgba(255,255,255,0.03)' },
         ticks: {
-          color: '#505050',
+          color: '#8a8a8a',
           font: { size: 10 },
           callback: v => '$' + (v / 1e9).toFixed(0) + 'B',
         },
         title: {
           display: true,
           text: 'Cumulative Spending (USD)',
-          color: '#505050',
+          color: '#8a8a8a',
           font: { size: 10 },
         }
       }
