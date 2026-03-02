@@ -352,7 +352,7 @@ nav {
   position: relative;
 }
 
-.chart-container canvas { max-height: 360px; }
+.chart-container canvas { max-height: 360px; min-height: 200px; }
 
 /* ── EVENTS TIMELINE LIST ── */
 .events-list {

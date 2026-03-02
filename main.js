@@ -199,6 +199,13 @@ const annotations = {
 };
 
 const ctx = document.getElementById('spendingChart').getContext('2d');
+const isMobile = window.innerWidth < 640;
+
+// On mobile: hide all annotation labels (lines remain as visual guides).
+// Labels overlap badly on narrow screens; the events list below provides full context.
+if (isMobile) {
+  Object.values(annotations).forEach(a => { a.label.display = false; });
+}
 
 const gradient = ctx.createLinearGradient(0, 0, 0, 360);
 gradient.addColorStop(0, 'rgba(204,0,0,0.30)');
@@ -214,8 +221,8 @@ new Chart(ctx, {
       borderColor: '#cc0000',
       borderWidth: 2,
       pointBackgroundColor: '#cc0000',
-      pointRadius: 4,
-      pointHoverRadius: 6,
+      pointRadius: isMobile ? 3 : 4,
+      pointHoverRadius: 5,
       fill: true,
       backgroundColor: gradient,
       tension: 0.25,
@@ -224,26 +231,28 @@ new Chart(ctx, {
   options: {
     responsive: true,
     maintainAspectRatio: true,
+    aspectRatio: isMobile ? 1.4 : 2,
     interaction: { mode: 'index', intersect: false },
     layout: {
-      padding: { top: 20, right: 100, bottom: 40 },
+      padding: { top: 16, right: isMobile ? 8 : 100, bottom: isMobile ? 8 : 40 },
     },
     scales: {
       x: {
         type: 'time',
-        time: { unit: 'month', displayFormats: { month: 'MMM yy' } },
+        time: { unit: 'month', displayFormats: { month: isMobile ? 'MMM' : 'MMM yy' } },
         grid: { color: 'rgba(255,255,255,0.03)' },
-        ticks: { color: '#8a8a8a', font: { size: 11 }, maxRotation: 0 },
+        ticks: { color: '#8a8a8a', font: { size: isMobile ? 9 : 11 }, maxRotation: 0, maxTicksLimit: isMobile ? 6 : 12 },
       },
       y: {
         grid: { color: 'rgba(255,255,255,0.03)' },
         ticks: {
           color: '#8a8a8a',
-          font: { size: 11 },
+          font: { size: isMobile ? 9 : 11 },
           callback: v => '$' + (v / 1e9).toFixed(0) + 'B',
+          maxTicksLimit: isMobile ? 5 : 8,
         },
         title: {
-          display: true,
+          display: !isMobile,
           text: 'Cumulative Spending (USD)',
           color: '#8a8a8a',
           font: { size: 11 },
