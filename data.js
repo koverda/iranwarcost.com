@@ -143,22 +143,14 @@ const SITE_DATA = {
       "date_label": "April 20, 2024",
       "cumul_label": "TRACKER START",
       "class": "notable",
-      "title": "$95B Foreign Aid Package: $26.38B for Israel Security (H.R.8034): tracker start date",
-      "desc": "H.R.8034 allocated $26.38B for Israel within a $95B package (Ukraine: $60.84B; Indo-Pacific: $8.12B). Funds covered Iron Dome replenishment, Foreign Military Financing, and US war reserve stock drawdowns through FY2024 and into FY2025. This signing is the tracker's start date: it represents the moment Congress formally committed the first large tranche of US resources to the Iran-Israel conflict.",
-      "cost_note": "Israel allocation: $26.38B · Disbursed through FY2024; included in this tracker",
+      "title": "$95B Foreign Aid Package — $26.38B for Israel (H.R.8034)",
+      "desc": "H.R.8034 allocated $26.38B for Israel within a $95B package (Ukraine: $60.84B; Indo-Pacific: $8.12B). Funds covered Iron Dome replenishment, Foreign Military Financing, and US war reserve stock drawdowns.",
+      "cost_note": "Israel allocation: $26.38B · FMF, Iron Dome replenishment, war reserve drawdown",
       "sources": [
         { "label": "Congress.gov H.R.8034", "url": "https://www.congress.gov/bill/118th-congress/house-bill/8034" },
         { "label": "CBO Cost Estimate", "url": "https://www.cbo.gov/publication/60221" },
         { "label": "PBS Breakdown", "url": "https://www.pbs.org/newshour/politics/a-breakdown-of-whats-in-the-95-billion-foreign-aid-package-passed-by-the-house" }
       ],
-      "chart_y": 0
-    },
-    {
-      "date": "2024-09-01",
-      "date_label": "September 2024",
-      "cumul_label": null,
-      "class": null,
-      "title": null,
       "chart_y": 26380000000
     },
     {
@@ -168,7 +160,7 @@ const SITE_DATA = {
       "class": "notable",
       "title": "Iran fires ~180–200 ballistic missiles at Israel (Operation True Promise II)",
       "desc": "Iran launched ~180–200 ballistic missiles at Israel. The IDF cited ~180; the White House cited more than 200. US forces fired interceptors alongside Israeli air defenses, depleting stockpiles that required replenishment in 2025. US interceptor expenditure estimated at $200–400M.",
-      "cost_note": "US interceptor costs est. $200–400M · Included in this tracker",
+      "cost_note": "US interceptor costs est. $200–400M",
       "sources": [
         { "label": "Wikipedia", "url": "https://en.wikipedia.org/wiki/October_2024_Iranian_strikes_on_Israel" },
         { "label": "NPR", "url": "https://www.npr.org/2024/10/01/g-s1-25707/iran-israel-hezbollah-lebanon-attack" },
@@ -205,7 +197,7 @@ const SITE_DATA = {
       "class": "notable",
       "title": "Operation Rough Rider: US airstrikes on Houthi forces in Yemen",
       "desc": "Sustained US air campaign against Houthi infrastructure in Yemen. The Houthis, an Iranian-backed proxy, had disrupted global shipping since late 2023. Strikes used Tomahawk missiles (~$2M each), B-2 sorties, and carrier air wing operations.",
-      "cost_note": "Estimated cost: $1.5–2.5B · Iran-proxy costs included in this tracker",
+      "cost_note": "Est. cost: $1.5–2.5B · Iran-backed proxy operations",
       "sources": [
         { "label": "CSIS: Houthi Threat", "url": "https://www.csis.org/programs/middle-east-program/houthi-threat" },
         { "label": "Breaking Defense", "url": "https://breakingdefense.com/tag/houthis/" }
@@ -233,7 +225,7 @@ const SITE_DATA = {
       "cumul_label": "~$32B",
       "class": "major",
       "title": "Operation Midnight Hammer: First direct US strikes on Iranian nuclear facilities",
-      "desc": "Seven B-2 bombers from Diego Garcia carried 14 GBU-57 Massive Ordnance Penetrators; submarines launched Tomahawks simultaneously. Targets: Fordow, Natanz, Isfahan: the first direct US military action against Iran. B-2 round-trip: ~30 flight hours at $130,000/hr. GBU-57 cost: $3.5M–$14M per bomb.",
+      "desc": "Seven B-2 bombers from Diego Garcia carried 14 GBU-57 Massive Ordnance Penetrators; submarines launched Tomahawks simultaneously. Targets: Fordow, Natanz, Isfahan. B-2 round-trip: ~30 flight hours at $130,000/hr. GBU-57 cost: $3.5M–$14M per bomb.",
       "cost_note": "7 B-2 sorties (~30 hr each): ~$27M · Tomahawks: ~$50–100M · Day-1 total est.: $150–300M+",
       "sources": [
         { "label": "Wikipedia", "url": "https://en.wikipedia.org/wiki/United_States_strikes_on_Iranian_nuclear_sites" },
@@ -279,7 +271,7 @@ const SITE_DATA = {
       "cumul_label": "~$40B",
       "class": "notable",
       "title": "Largest US Middle East naval buildup since 2003: 2 carrier strike groups repositioned",
-      "desc": "Two carrier strike groups repositioned to the Middle East, the largest US naval deployment to the region since 2003. Each CSG costs ~$6.5M/day in theater operations, totaling ~$13M/day combined.",
+      "desc": "Each CSG costs ~$6.5M/day in theater operations, ~$13M/day combined.",
       "cost_note": "2 CSG daily ship ops: ~$13M/day · Theater total (all forces): ~$40–80M/day",
       "sources": [
         { "label": "USNI News", "url": "https://news.usni.org" }
@@ -319,7 +311,7 @@ const SITE_DATA = {
       "class": "major",
       "open": true,
       "title": "Friendly fire: Kuwait downs 3 US F-15s. Hezbollah opens a third front.",
-      "desc": "Three F-15Es were shot down by Kuwaiti air defense in a friendly fire incident. All six aircrew ejected and were recovered safely. Original F-15E cost: ~$31M (FY1998); F-15EX replacement: ~$94M. Hezbollah separately opened a sustained assault on Israel's northern border.",
+      "desc": "Three F-15Es shot down by Kuwaiti air defense in a friendly fire incident. All six aircrew ejected and were recovered. Original F-15E cost: ~$31M (FY1998); F-15EX replacement: ~$94M. Hezbollah simultaneously opened a sustained assault on Israel's northern border.",
       "cost_note": "3 F-15E airframes: ~$93M original / ~$282M replacement · Tracker anchor: $43B",
       "sources": [
         { "label": "F-15E Wikipedia", "url": "https://en.wikipedia.org/wiki/McDonnell_Douglas_F-15E_Strike_Eagle" },

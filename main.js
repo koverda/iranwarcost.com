@@ -93,14 +93,14 @@ function init(data) {
     set('compare-war-sublabel', `$${anchorB}B ÷ ${taxpayersM}M taxpayers`);
     set('compare-war-val',      `$${perTxTotal}`);
     set('alt-title',            `What $${anchorB} Billion Could Have Funded Instead`);
-    set('realtime-desc',        `Each counter below started at zero when you loaded this page. At $${perSec} per second, watch what crosses the threshold.`);
+    set('realtime-rate',        `$${perSec}`);
     set('methodology-heading',  `$${anchorB}B cost breakdown (since ${data.meta.tracker_start_label}):`);
     set('methodology-counter',  `Anchored at $${anchorB}B on ${anchorDateStr} (UTC midnight), incrementing at $${perSec}/second (~$${dailyM}M/day), reflecting the active operations rate since Epic Fury began February 28.`);
     set('footer-anchor',        `Data anchored: ${anchorDateStr} · All figures are estimates from publicly available data`);
 
     // Hero subtitle — uses tracker start label and first cost_breakdown item
     const hr8034Label = data.cost_breakdown[0].estimate_label; // "$26.38B"
-    set('hero-subtitle', `Estimated US military spending since ${data.meta.tracker_start_label} — the day Congress passed ${hr8034Label} in emergency security aid for Israel. Operations, weapons, air defense, and military aid. All figures sourced.`);
+    set('hero-subtitle', `Estimated US military spending since ${data.meta.tracker_start_label}, the day Congress passed ${hr8034Label} in emergency security assistance for Israel. Operations, weapons, air defense, and military aid. All figures sourced.`);
 
     // Twitter share link
     const tweetText = encodeURIComponent(`The US war with Iran has cost $${anchorB}B since ${data.meta.tracker_start_label} — and counting. $${perTxTotal} per taxpayer.`);
@@ -109,7 +109,7 @@ function init(data) {
 
     // Methodology intro paragraph
     const mIntro = document.getElementById('methodology-intro');
-    if (mIntro) mIntro.innerHTML = `The tracker starts on <strong>${data.meta.tracker_start_label}</strong> — the date President Biden signed H.R.8034, committing ${hr8034Label} in emergency Israel security assistance. This represents the first large, direct US financial commitment in response to escalating Iran-Israel conflict. All subsequent appropriations, operations, and air defense expenditures are counted from that date forward.`;
+    if (mIntro) mIntro.innerHTML = `The tracker starts on <strong>${data.meta.tracker_start_label}</strong> — when President Biden signed H.R.8034, committing ${hr8034Label} in emergency Israel security assistance. All subsequent appropriations, operations, and expenditures are counted from that date.`;
 
     // Burn rate tooltip
     const tooltipEl = document.getElementById('burn-tooltip');
@@ -140,8 +140,7 @@ function init(data) {
           `<thead><tr><th>Interval</th><th>Rate/day</th><th>Weight</th></tr></thead>` +
           `<tbody>${rows}</tbody>` +
         `</table>` +
-        `<p>Result: <strong style="color:var(--text)">~$${dailyM}M/day</strong> — dominated by the most ` +
-        `recent spending period. <a class="burn-tooltip-link" href="#sources">Full methodology →</a></p>`;
+        `<p>Result: <strong style="color:var(--text)">~$${dailyM}M/day</strong>, weighted toward the most recent period. <a class="burn-tooltip-link" href="#sources">Full methodology →</a></p>`;
 
       infoBtn.addEventListener('click', e => {
         e.stopPropagation();
