@@ -124,10 +124,10 @@ const annotations = {
     borderWidth: 1,
     borderDash: [3, 3],
     label: {
-      display: true, content: 'Op. Rough Rider', position: 'start',
+      display: true, content: 'Op. Rough Rider', position: 'end',
       color: '#8a8a8a', font: { size: 11 },
       backgroundColor: 'rgba(10,10,10,0.9)',
-      yAdjust: 60,
+      yAdjust: 10,
     }
   },
   war12day: {
@@ -137,24 +137,21 @@ const annotations = {
     borderWidth: 1,
     borderDash: [4, 3],
     label: {
-      display: true, content: '12-Day War Begins', position: 'start',
+      display: true, content: '12-Day War', position: 'end',
       color: '#ffd166', font: { size: 11 },
       backgroundColor: 'rgba(10,10,10,0.9)',
-      yAdjust: 40,
+      yAdjust: 10,
     }
   },
+  // midnightHammer and war12dayEnd are only 2 days apart from war12day —
+  // labels would always overlap; the events list below provides full detail.
   midnightHammer: {
     type: 'line',
     xMin: '2025-06-22', xMax: '2025-06-22',
     borderColor: 'rgba(255,209,102,0.6)',
     borderWidth: 1,
     borderDash: [4, 3],
-    label: {
-      display: true, content: 'Op. Midnight Hammer', position: 'start',
-      color: '#ffd166', font: { size: 11 },
-      backgroundColor: 'rgba(10,10,10,0.9)',
-      yAdjust: 15,
-    }
+    label: { display: false }
   },
   war12dayEnd: {
     type: 'line',
@@ -162,12 +159,7 @@ const annotations = {
     borderColor: 'rgba(255,209,102,0.3)',
     borderWidth: 1,
     borderDash: [4, 3],
-    label: {
-      display: true, content: '12-Day War Ends', position: 'start',
-      color: '#ffd166', font: { size: 11 },
-      backgroundColor: 'rgba(10,10,10,0.9)',
-      yAdjust: 8,
-    }
+    label: { display: false }
   },
   jan26: {
     type: 'line',
@@ -176,11 +168,10 @@ const annotations = {
     borderWidth: 1,
     borderDash: [4, 3],
     label: {
-      display: true, content: '2 CSGs Deployed', position: 'start',
+      display: true, content: '2 CSGs', position: 'end',
       color: '#8a8a8a', font: { size: 11 },
       backgroundColor: 'rgba(10,10,10,0.9)',
-      yAdjust: 30,
-      xAdjust: -60,
+      yAdjust: 10,
     }
   },
   epicFury: {
@@ -189,11 +180,11 @@ const annotations = {
     borderColor: 'rgba(204,0,0,0.9)',
     borderWidth: 2,
     label: {
-      display: true, content: 'Op. Epic Fury Begins', position: 'start',
+      display: true, content: 'Op. Epic Fury', position: 'end',
       color: '#cc0000', font: { size: 11, weight: 'bold' },
       backgroundColor: 'rgba(10,10,10,0.95)',
-      yAdjust: 8,
-      xAdjust: -70,
+      yAdjust: 30,
+      xAdjust: -55,
     }
   },
 };
