@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>US Military Cost: Iran Conflict 2025–</title>
-  <meta name="description" content="Documented US military spending on the Iran conflict since January 2025: direct operations, weapons, air defense, and Iran-related military aid. Data-driven, source-cited.">
+  <title>US Military Cost: Iran Conflict 2024–</title>
+  <meta name="description" content="Documented US military spending on the Iran conflict since April 2024: the $26B Israel security package, direct operations, weapons, air defense, and military aid. Data-driven, source-cited.">
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -34,6 +34,7 @@
       <li><a href="#chart">Timeline</a></li>
       <li><a href="#taxpayer">Your Share</a></li>
       <li><a href="#alternatives">Alternatives</a></li>
+      <li><a href="#realtime">Live Clock</a></li>
       <li><a href="#sources">Sources</a></li>
       <li><a class="nav-github" href="https://github.com/koverda/iranwarcost.com" target="_blank" rel="noopener">⌥ GitHub</a></li>
     </ul>
@@ -42,9 +43,9 @@
   <!-- HERO -->
   <section id="hero">
     <h1 class="hero-title">The Cost of America's War with Iran</h1>
-    <p class="hero-subtitle">Estimated US military spending since January 2025: operations, weapons, air defense, and military aid. All figures sourced. Financial costs only; the human toll is not counted here.</p>
+    <p class="hero-subtitle" id="hero-subtitle">Estimated US military spending since April 20, 2024 — the day Congress passed $26B in emergency security aid for Israel. Operations, weapons, air defense, and military aid. All figures sourced.</p>
 
-    <div class="counter-label">Total Cost Since January 2025</div>
+    <div class="counter-label" id="counter-label">Total Cost Since April 20, 2024</div>
     <span id="total-counter">$0</span>
 
     <div class="per-taxpayer-wrapper">
@@ -53,23 +54,23 @@
     </div>
 
     <div class="share-buttons">
-      <a class="share-btn"
-         href="https://twitter.com/intent/tweet?text=The%20US%20war%20with%20Iran%20has%20cost%20%2416B%20since%202025%20%E2%80%94%20and%20counting.%20%24107%20per%20taxpayer.&url=https%3A%2F%2Firanwarcost.com"
+      <a class="share-btn" id="share-twitter"
+         href="#"
          target="_blank" rel="noopener">𝕏 Share</a>
       <button class="share-btn" id="copy-link-btn" onclick="copyLink()">⬡ Copy Link</button>
     </div>
 
     <div class="burn-rates" aria-label="Burn rate">
       <div class="burn-rate-item">
-        <span class="burn-rate-value">~$200M</span>
+        <span class="burn-rate-value" id="burn-daily">—</span>
         <span class="burn-rate-unit">per day</span>
       </div>
       <div class="burn-rate-item">
-        <span class="burn-rate-value">~$8.3M</span>
+        <span class="burn-rate-value" id="burn-hourly">—</span>
         <span class="burn-rate-unit">per hour</span>
       </div>
       <div class="burn-rate-item">
-        <span class="burn-rate-value">~$2,315</span>
+        <span class="burn-rate-value" id="burn-second">—</span>
         <span class="burn-rate-unit">per second</span>
       </div>
     </div>
@@ -105,7 +106,7 @@
     <div class="section-inner">
       <p class="section-eyebrow">Escalation Timeline</p>
       <h2 class="section-title">How We Got Here</h2>
-      <p class="section-desc">Estimated cumulative US direct spending tied to the Iran conflict, from January 2025 through the start of direct combat operations in February 2026.</p>
+      <p class="section-desc">Estimated cumulative US direct spending tied to the Iran conflict, from April 20, 2024 (H.R.8034 signing) through the start of direct combat operations in February 2026.</p>
 
       <div class="disclaimer-banner">
         <strong>Note:</strong> All cost figures are estimates. Events from late January 2026 onward reflect available public reporting through the anchor date of March 2, 2026. See <a href="#sources" style="color:var(--muted);text-decoration:underline">Sources &amp; Methodology</a>.
@@ -116,172 +117,8 @@
       </div>
 
       <!-- EVENTS LIST -->
-      <div class="events-list">
-
-        <div class="event-item notable">
-          <div class="event-date">April 20, 2024 <span class="event-cumul">PRE-TRACKER</span></div>
-          <details class="event-details">
-            <summary class="event-title">$95B Foreign Aid Package: $26.38B for Israel Security (H.R.8034)</summary>
-            <div class="event-body">
-              <div class="event-desc">H.R.8034 allocated $26.38B for Israel within a $95B package (Ukraine: $60.84B; Indo-Pacific: $8.12B). Funds covered Iron Dome replenishment, Foreign Military Financing, and US war reserve stock drawdowns that continued into 2025, funding systems deployed in the Iran conflict.</div>
-              <div class="event-cost">Israel allocation: $26.38B · Ongoing FY2025 drawdowns included in this tracker</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://www.congress.gov/bill/118th-congress/house-bill/8034" target="_blank" rel="noopener">Congress.gov H.R.8034</a>
-                <a class="event-source-link" href="https://www.cbo.gov/publication/60221" target="_blank" rel="noopener">CBO Cost Estimate</a>
-                <a class="event-source-link" href="https://www.pbs.org/newshour/politics/a-breakdown-of-whats-in-the-95-billion-foreign-aid-package-passed-by-the-house" target="_blank" rel="noopener">PBS Breakdown</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item notable">
-          <div class="event-date">October 1, 2024 <span class="event-cumul">PRE-TRACKER</span></div>
-          <details class="event-details">
-            <summary class="event-title">Iran fires ~180–200 ballistic missiles at Israel (Operation True Promise II)</summary>
-            <div class="event-body">
-              <div class="event-desc">Iran launched ~180–200 ballistic missiles at Israel. The IDF cited ~180; the White House cited more than 200. US forces fired interceptors alongside Israeli air defenses, depleting stockpiles that required replenishment in 2025.</div>
-              <div class="event-cost">US interceptor costs est. $200–400M · Pre-2025; not included in this tracker</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://en.wikipedia.org/wiki/October_2024_Iranian_strikes_on_Israel" target="_blank" rel="noopener">Wikipedia</a>
-                <a class="event-source-link" href="https://www.npr.org/2024/10/01/g-s1-25707/iran-israel-hezbollah-lebanon-attack" target="_blank" rel="noopener">NPR</a>
-                <a class="event-source-link" href="https://www.aljazeera.com/news/2024/10/1/irans-missile-attack-against-israel-what-we-know-and-what-comes-next" target="_blank" rel="noopener">Al Jazeera</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item notable">
-          <div class="event-date">March 15, 2025 <span class="event-cumul">~$0.5B</span></div>
-          <details class="event-details">
-            <summary class="event-title">FY2025 Full-Year Appropriations: $3.3B Foreign Military Financing for Israel</summary>
-            <div class="event-body">
-              <div class="event-desc">H.R.1968 funded Israel's baseline Foreign Military Financing at $3.3B, the annual level under the US–Israel MOU. The act also included $450M for Israeli offshore procurement and missile defense replenishment.</div>
-              <div class="event-cost">FY2025 FMF: $3.3B · Plus $450M offshore procurement</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://www.congress.gov/bill/119th-congress/house-bill/1968/text" target="_blank" rel="noopener">Congress.gov H.R.1968</a>
-                <a class="event-source-link" href="https://www.congress.gov/crs-product/RL33222" target="_blank" rel="noopener">CRS Report RL33222</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item notable">
-          <div class="event-date">March–May 2025 <span class="event-cumul">~$0.5B–$2B</span></div>
-          <details class="event-details">
-            <summary class="event-title">Operation Rough Rider: US airstrikes on Houthi forces in Yemen</summary>
-            <div class="event-body">
-              <div class="event-desc">Sustained US air campaign against Houthi infrastructure in Yemen. The Houthis, an Iranian-backed proxy, had disrupted global shipping since late 2023. Strikes used Tomahawk missiles (~$2M each), B-2 sorties, and carrier air wing operations.</div>
-              <div class="event-cost">Estimated cost: $1.5–2.5B · Iran-proxy costs included in this tracker</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://www.csis.org/programs/middle-east-program/houthi-threat" target="_blank" rel="noopener">CSIS: Houthi Threat</a>
-                <a class="event-source-link" href="https://breakingdefense.com/tag/houthis/" target="_blank" rel="noopener">Breaking Defense</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item major">
-          <div class="event-date">June 13–24, 2025 <span class="event-cumul">$2B to $7.5B</span></div>
-          <details class="event-details">
-            <summary class="event-title">Twelve-Day War: US depletes 14% of its THAAD stockpile</summary>
-            <div class="event-body">
-              <div class="event-desc">Israel struck Iranian military and nuclear sites on June 13 (Operation Rising Lion); Iran retaliated with 550+ missiles and 1,000+ drones over 12 days. US forces expended ~92 THAAD interceptors at $12.7M each, 14% of the total US stockpile. Total US air defense costs reached $2.7–4.7B (JINSA, July 2025). Restocking is projected to take 3–8 years.</div>
-              <div class="event-cost">THAAD alone: 92 x $12.7M = $1.17B · Total US air defense: $2.7–4.7B (JINSA)</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://en.wikipedia.org/wiki/Twelve-Day_War" target="_blank" rel="noopener">Wikipedia: Twelve-Day War</a>
-                <a class="event-source-link" href="https://jinsa.org/jinsa_report/insights-from-12-day-war/" target="_blank" rel="noopener">JINSA Insights</a>
-                <a class="event-source-link" href="https://jinsa.org/wp-content/uploads/2025/07/Cost-Estimates-During-the-U.S.-Israel-Iran-War-07-21-25.pdf" target="_blank" rel="noopener">JINSA Cost Report (PDF)</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item major">
-          <div class="event-date">June 22, 2025 <span class="event-cumul">~$5B</span></div>
-          <details class="event-details">
-            <summary class="event-title">Operation Midnight Hammer: First direct US strikes on Iranian nuclear facilities</summary>
-            <div class="event-body">
-              <div class="event-desc">Seven B-2 bombers from Diego Garcia carried 14 GBU-57 Massive Ordnance Penetrators; submarines launched Tomahawks simultaneously. Targets: Fordow, Natanz, Isfahan — the first direct US military action against Iran. B-2 round-trip: ~30 flight hours at $130,000/hr. GBU-57 cost: $3.5M–$14M per bomb.</div>
-              <div class="event-cost">7 B-2 sorties (~30 hr each): ~$27M · Tomahawks: ~$50–100M · Day-1 total est.: $150–300M+</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://en.wikipedia.org/wiki/United_States_strikes_on_Iranian_nuclear_sites" target="_blank" rel="noopener">Wikipedia</a>
-                <a class="event-source-link" href="https://www.csis.org/analysis/what-operation-midnight-hammer-means-future-irans-nuclear-ambitions" target="_blank" rel="noopener">CSIS Analysis</a>
-                <a class="event-source-link" href="https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104482/b-2-spirit/" target="_blank" rel="noopener">USAF B-2 Fact Sheet</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item">
-          <div class="event-date">September 27, 2025 <span class="event-cumul">~$9.5B</span></div>
-          <details class="event-details">
-            <summary class="event-title">UN Sanctions Snapback: Iran nuclear sanctions reimposed</summary>
-            <div class="event-body">
-              <div class="event-desc">The UK, France, and Germany invoked the JCPOA snapback mechanism; UN sanctions were reimposed September 27. US military posture remained elevated with 2 carrier strike groups in the region at ~$13M/day.</div>
-              <div class="event-cost">Theater baseline (pre-Epic Fury): $17–30M/day · 2 CSG ship ops: ~$13M/day</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://www.state.gov/releases/office-of-the-spokesperson/2025/09/completion-of-un-sanctions-snapback-on-iran/" target="_blank" rel="noopener">US State Dept</a>
-                <a class="event-source-link" href="https://www.consilium.europa.eu/en/press/press-releases/2025/09/29/iran-sanctions-snapback-council-reimposes-restrictive-measures/" target="_blank" rel="noopener">EU Council</a>
-                <a class="event-source-link" href="https://en.wikipedia.org/wiki/Snapback_mechanism_of_sanctions_against_Iran" target="_blank" rel="noopener">Wikipedia: Snapback</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item notable">
-          <div class="event-date">Late January 2026 <span class="event-cumul">~$13B</span></div>
-          <details class="event-details">
-            <summary class="event-title">Largest US Middle East naval buildup since 2003: 2 carrier strike groups repositioned</summary>
-            <div class="event-body">
-              <div class="event-desc">Two carrier strike groups repositioned to the Middle East, the largest US naval deployment to the region since 2003. Each CSG costs ~$6.5M/day in theater operations, totaling ~$13M/day combined.</div>
-              <div class="event-cost">2 CSG daily ship ops: ~$13M/day · Theater total (all forces): ~$40–80M/day</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://news.usni.org" target="_blank" rel="noopener">USNI News</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item major">
-          <div class="event-date">February 28, 2026 <span class="event-cumul">~$14.2B</span></div>
-          <details class="event-details" open>
-            <summary class="event-title">Operation Epic Fury: 1,000+ Iranian military targets struck in the first 24 hours</summary>
-            <div class="event-body">
-              <div class="event-desc">US and Israeli forces struck 1,000+ Iranian military sites in the first 24 hours. Weapons included B-2 bombers, Tomahawk missiles (~$2M each), HIMARS rockets, and F-35C sorties. Supreme Leader Khamenei was killed. Three US service members were killed.</div>
-              <div class="event-cost">Day-1 munitions estimate: $1–2B · Ongoing operations rate: ~$200M/day</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://news.usni.org" target="_blank" rel="noopener">USNI News</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item major">
-          <div class="event-date">March 1, 2026 <span class="event-cumul">~$15B</span></div>
-          <details class="event-details" open>
-            <summary class="event-title">4th US service member killed; operations continue</summary>
-            <div class="event-body">
-              <div class="event-desc">A 4th US service member was killed. Strikes continued against Iranian military and IRGC targets.</div>
-              <div class="event-cost">2-day operational cost estimate: $2–4B cumulative</div>
-            </div>
-          </details>
-        </div>
-
-        <div class="event-item major">
-          <div class="event-date">March 2, 2026 <span class="event-cumul">$16B</span></div>
-          <details class="event-details" open>
-            <summary class="event-title">Friendly fire: Kuwait downs 3 US F-15s. Hezbollah opens a third front.</summary>
-            <div class="event-body">
-              <div class="event-desc">Three F-15Es were shot down by Kuwaiti air defense in a friendly fire incident. All six aircrew ejected and were recovered safely. Original F-15E cost: ~$31M (FY1998); F-15EX replacement: ~$94M. Hezbollah separately opened a sustained assault on Israel's northern border.</div>
-              <div class="event-cost">3 F-15E airframes: ~$93M original / ~$282M replacement · Tracker anchor: $16B</div>
-              <div class="event-sources">
-                <a class="event-source-link" href="https://en.wikipedia.org/wiki/McDonnell_Douglas_F-15E_Strike_Eagle" target="_blank" rel="noopener">F-15E Wikipedia</a>
-                <a class="event-source-link" href="https://www.airandspaceforces.com/new-acquisition-report-f-15ex-unit-cost/" target="_blank" rel="noopener">F-15EX Cost</a>
-              </div>
-            </div>
-          </details>
-        </div>
-
+      <div class="events-list" id="events-list">
+        <!-- populated by main.js from data.json -->
       </div>
 
       <div class="contribute-cta">
@@ -302,27 +139,27 @@
       <p class="section-desc">Based on ~150 million US tax filers. (<a href="https://www.irs.gov/statistics" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline">IRS Statistics of Income</a>)</p>
 
       <div class="taxpayer-highlight">
-        <div class="th-label">Per US Taxpayer: Total Since January 2025</div>
-        <span id="taxpayer-big">$107</span>
-        <div class="th-sub">Live &bull; 150M US taxpayers</div>
+        <div class="th-label" id="th-label">Per US Taxpayer: Total Since April 2024</div>
+        <span id="taxpayer-big">—</span>
+        <div class="th-sub" id="th-sub">Live &bull; — US taxpayers</div>
       </div>
 
       <div class="taxpayer-grid">
         <div class="taxpayer-card">
           <div class="tc-period">Per Day</div>
-          <div class="tc-amount" id="tc-daily">$1.33</div>
+          <div class="tc-amount" id="tc-daily">—</div>
         </div>
         <div class="taxpayer-card">
           <div class="tc-period">Per Week</div>
-          <div class="tc-amount" id="tc-weekly">$9.33</div>
+          <div class="tc-amount" id="tc-weekly">—</div>
         </div>
         <div class="taxpayer-card">
           <div class="tc-period">Per Month</div>
-          <div class="tc-amount" id="tc-monthly">$40.58</div>
+          <div class="tc-amount" id="tc-monthly">—</div>
         </div>
         <div class="taxpayer-card">
           <div class="tc-period">Per Year</div>
-          <div class="tc-amount" id="tc-annual">$487</div>
+          <div class="tc-amount" id="tc-annual">—</div>
         </div>
       </div>
 
@@ -331,14 +168,14 @@
 
         <div class="compare-row">
           <div>
-            <div class="compare-row-label">War with Iran: Total since Jan 2025</div>
-            <div class="compare-row-sublabel">$16B ÷ 150M taxpayers</div>
+            <div class="compare-row-label">War with Iran: Total since Apr 2024</div>
+            <div class="compare-row-sublabel" id="compare-war-sublabel">—</div>
           </div>
           <div class="compare-bar-row">
             <div class="compare-bar-track">
               <div class="compare-bar-fill war" style="width:100%"></div>
             </div>
-            <div class="compare-row-val" style="color:var(--red)">$107</div>
+            <div class="compare-row-val" id="compare-war-val" style="color:var(--red)">—</div>
           </div>
         </div>
 
@@ -349,7 +186,7 @@
           </div>
           <div class="compare-bar-row">
             <div class="compare-bar-track">
-              <div class="compare-bar-fill nsf" style="width:56%"></div>
+              <div class="compare-bar-fill nsf" style="width:21%"></div>
             </div>
             <div class="compare-row-val" style="color:var(--muted)">$60/yr</div>
           </div>
@@ -362,7 +199,7 @@
           </div>
           <div class="compare-bar-row">
             <div class="compare-bar-track">
-              <div class="compare-bar-fill epa" style="width:37%"></div>
+              <div class="compare-bar-fill epa" style="width:14%"></div>
             </div>
             <div class="compare-row-val" style="color:var(--muted)">$40/yr</div>
           </div>
@@ -375,7 +212,7 @@
           </div>
           <div class="compare-bar-row">
             <div class="compare-bar-track">
-              <div class="compare-bar-fill housing" style="width:21%"></div>
+              <div class="compare-bar-fill housing" style="width:8%"></div>
             </div>
             <div class="compare-row-val" style="color:var(--muted)">$22/yr</div>
           </div>
@@ -390,62 +227,82 @@
   <section id="alternatives">
     <div class="section-inner">
       <p class="section-eyebrow">Opportunity Cost</p>
-      <h2 class="section-title">What $16 Billion Could Have Funded Instead</h2>
+      <h2 class="section-title" id="alt-title">What $43 Billion Could Have Funded Instead</h2>
       <p class="section-desc">Figures from published federal program costs and national averages.</p>
 
-      <div class="comparison-grid">
-        <div class="comparison-card">
-          <span class="cc-icon">🏥</span>
-          <div class="cc-number">1.1 million</div>
-          <div class="cc-label">Americans' full annual healthcare costs covered ($14,570/person avg.)</div>
-          <div class="cc-source">CMS National Health Expenditure Accounts, 2023</div>
-        </div>
-        <div class="comparison-card">
-          <span class="cc-icon">🎓</span>
-          <div class="cc-number">1.38 million</div>
-          <div class="cc-label">Students' full-year in-state tuition at a public university ($11,610 avg.)</div>
-          <div class="cc-source">College Board, 2024–25</div>
-        </div>
-        <div class="comparison-card">
-          <span class="cc-icon">🏠</span>
-          <div class="cc-number">160,000</div>
-          <div class="cc-label">Affordable housing units at $100,000/unit</div>
-          <div class="cc-source">National Association of Home Builders, 2024</div>
-        </div>
-        <div class="comparison-card">
-          <span class="cc-icon">👩‍🏫</span>
-          <div class="cc-number">246,000</div>
-          <div class="cc-label">Public school teachers for one year ($65,000 avg. salary)</div>
-          <div class="cc-source">NCES/BLS, 2024</div>
-        </div>
-        <div class="comparison-card">
-          <span class="cc-icon">👶</span>
-          <div class="cc-number">9.4 million</div>
-          <div class="cc-label">Children insured for one year through CHIP (~$1,700/child)</div>
-          <div class="cc-source">CMS CHIP Expenditure Data, FY2024</div>
-        </div>
-        <div class="comparison-card">
-          <span class="cc-icon">🍎</span>
-          <div class="cc-number">20.9 million</div>
-          <div class="cc-label">Students receiving free school lunches for one year ($4.25/lunch × 180 days)</div>
-          <div class="cc-source">USDA NSLP, FY2024</div>
-        </div>
-        <div class="comparison-card">
-          <span class="cc-icon">🌱</span>
-          <div class="cc-number">2.7×</div>
-          <div class="cc-label">The entire annual EPA budget (~$6B), funded nearly 3× over</div>
-          <div class="cc-source">EPA FY2025 Congressional Justification</div>
-        </div>
-        <div class="comparison-card">
-          <span class="cc-icon">🎒</span>
-          <div class="cc-number">3.0 million</div>
-          <div class="cc-label">Pell Grant recipients for one year ($5,300 avg. grant)</div>
-          <div class="cc-source">Dept. of Education, AY2023–24</div>
-        </div>
+      <div class="comparison-grid" id="alternatives-grid">
+        <!-- populated by main.js from data.json -->
       </div>
 
-      <div class="jobs-callout">
-        Military spending generates an estimated <strong>5 direct jobs per $1M</strong>; education spending generates approximately <strong>13 per $1M</strong>. Redirecting $16B to education could have supported ~<strong>128,000 more jobs</strong>. <em>(SIPRI, 2024; multiplier figures vary across methodologies.)</em>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- REALTIME TICKER -->
+  <section id="realtime">
+    <div class="section-inner">
+      <p class="section-eyebrow">Since You Opened This Page</p>
+      <h2 class="section-title">The Meter Is Still Running</h2>
+      <p class="section-desc" id="realtime-desc">Each counter below started at zero when you loaded this page. At — per second, watch what crosses the threshold.</p>
+
+      <div class="ticker-list" id="ticker-grid">
+        <div class="ticker-row" id="tc-lunches">
+          <span class="ticker-icon">🍎</span>
+          <div>
+            <span class="ticker-num" id="tn-lunches">0</span>
+            <span class="ticker-label">years of school lunches funded</span>
+            <span class="ticker-sub">$4.25/lunch × 180 days = $765/yr</span>
+          </div>
+        </div>
+        <div class="ticker-row" id="tc-chip">
+          <span class="ticker-icon">👶</span>
+          <div>
+            <span class="ticker-num" id="tn-chip">0</span>
+            <span class="ticker-label">children covered by CHIP for one year</span>
+            <span class="ticker-sub">$1,700/child · CMS FY2024</span>
+          </div>
+        </div>
+        <div class="ticker-row" id="tc-pell">
+          <span class="ticker-icon">🎒</span>
+          <div>
+            <span class="ticker-num" id="tn-pell">0</span>
+            <span class="ticker-label">Pell Grants awarded</span>
+            <span class="ticker-sub">$5,300 avg. · Dept. of Education AY2023–24</span>
+          </div>
+        </div>
+        <div class="ticker-row" id="tc-college">
+          <span class="ticker-icon">🎓</span>
+          <div>
+            <span class="ticker-num" id="tn-college">0</span>
+            <span class="ticker-label">years of public college tuition covered</span>
+            <span class="ticker-sub">$11,610 avg. in-state · College Board 2024–25</span>
+          </div>
+        </div>
+        <div class="ticker-row" id="tc-health">
+          <span class="ticker-icon">🏥</span>
+          <div>
+            <span class="ticker-num" id="tn-health">0</span>
+            <span class="ticker-label">Americans' full annual healthcare costs covered</span>
+            <span class="ticker-sub">$14,570/person · CMS 2023</span>
+          </div>
+        </div>
+        <div class="ticker-row" id="tc-teacher">
+          <span class="ticker-icon">👩‍🏫</span>
+          <div>
+            <span class="ticker-num" id="tn-teacher">0.0</span>
+            <span class="ticker-label">teacher salaries for one year</span>
+            <span class="ticker-sub">$65,000 avg. · NCES/BLS 2024</span>
+          </div>
+        </div>
+        <div class="ticker-row" id="tc-housing">
+          <span class="ticker-icon">🏠</span>
+          <div>
+            <span class="ticker-num" id="tn-housing">0.0</span>
+            <span class="ticker-label">affordable housing units built</span>
+            <span class="ticker-sub">$100,000/unit · NAHB 2024</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -507,7 +364,9 @@
       </ul>
 
       <div class="methodology-note">
-        <strong>$16B cost breakdown (since January 1, 2025):</strong>
+        <strong id="methodology-heading">$43B cost breakdown (since April 20, 2024):</strong>
+
+        <p id="methodology-intro" style="margin-top:0.75rem;margin-bottom:0.5rem">The tracker starts on <strong>April 20, 2024</strong> — the date President Biden signed H.R.8034, committing $26.38B in emergency Israel security assistance. This represents the first large, direct US financial commitment in response to escalating Iran-Israel conflict. All subsequent appropriations, operations, and air defense expenditures are counted from that date forward.</p>
 
         <table class="cost-table">
           <thead>
@@ -517,52 +376,13 @@
               <th>Estimate</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>FY2025 Foreign Military Financing for Israel (H.R.1968)</td>
-              <td>Congress.gov, CRS RL33222</td>
-              <td>$3.3B</td>
-            </tr>
-            <tr>
-              <td>US air defense: Twelve-Day War (THAAD, SM-3, PAC-3, SM-6)</td>
-              <td>JINSA July 2025 Report</td>
-              <td>~$3.5B</td>
-            </tr>
-            <tr>
-              <td>Operation Midnight Hammer: B-2 sorties, GBU-57 MOPs, Tomahawks (June 22)</td>
-              <td>CSIS, USAF Fact Sheet, unit costs</td>
-              <td>~$400M</td>
-            </tr>
-            <tr>
-              <td>Operation Rough Rider: Houthi strikes, Mar–May 2025</td>
-              <td>DoD / media estimates</td>
-              <td>~$1.5B</td>
-            </tr>
-            <tr>
-              <td>FY2025 weapons drawdown transfers to Israel</td>
-              <td>Pentagon DSCA notifications</td>
-              <td>~$1B</td>
-            </tr>
-            <tr>
-              <td>US theater force presence, Jul 2025–Jan 2026 (2 CSG rotations)</td>
-              <td>USNI News, DoD cost-per-day estimates</td>
-              <td>~$2B</td>
-            </tr>
-            <tr>
-              <td>Operation Epic Fury: 3 days at ~$200M/day + surge munitions (Feb 28–Mar 2)</td>
-              <td>Published unit costs, DoD statements</td>
-              <td>~$4.3B</td>
-            </tr>
-            <tr>
-              <td><strong>Total anchor: March 2, 2026 UTC midnight</strong></td>
-              <td></td>
-              <td><strong>~$16B</strong></td>
-            </tr>
+          <tbody id="cost-breakdown-tbody">
+            <!-- populated by main.js from data.json -->
           </tbody>
         </table>
 
         <br>
-        <strong>Counter:</strong> Anchored at $16B on March 2, 2026 (UTC midnight), incrementing at $2,315/second (~$200M/day), reflecting the active operations rate since Epic Fury began February 28.
+        <strong>Counter:</strong> <span id="methodology-counter">Anchored at $43B on March 2, 2026 (UTC midnight), incrementing at $2,315/second (~$200M/day), reflecting the active operations rate since Epic Fury began February 28.</span>
         <br><br>
         <strong>What is included:</strong> Direct US military operational costs; air defense interceptors expended; FMF appropriations; weapons drawdowns to Israel for Iran-related operations; Iran-proxy (Houthi) operation costs.
         <br><br>
@@ -575,7 +395,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>Data anchored: March 2, 2026 · All figures are estimates from publicly available data</p>
+    <p id="footer-anchor">Data anchored: March 2, 2026 · All figures are estimates from publicly available data</p>
     <p style="margin-top:0.4rem">
       Built with <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a>
       · Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>
@@ -584,7 +404,50 @@
     </p>
   </footer>
 
+  <!-- LIVE SIDEBAR (desktop only, min-width: 1400px) -->
+  <aside class="live-sidebar" aria-label="Live cost ticker">
+    <div class="ls-title">Live</div>
+    <div class="ls-item" id="lsi-lunches">
+      <span class="ls-icon">🍎</span>
+      <span class="ls-num" id="ls-lunches">—</span>
+      <span class="ls-name">Lunches</span>
+    </div>
+    <div class="ls-item" id="lsi-chip">
+      <span class="ls-icon">👶</span>
+      <span class="ls-num" id="ls-chip">—</span>
+      <span class="ls-name">CHIP</span>
+    </div>
+    <div class="ls-item" id="lsi-pell">
+      <span class="ls-icon">🎒</span>
+      <span class="ls-num" id="ls-pell">—</span>
+      <span class="ls-name">Pell</span>
+    </div>
+    <div class="ls-item" id="lsi-college">
+      <span class="ls-icon">🎓</span>
+      <span class="ls-num" id="ls-college">—</span>
+      <span class="ls-name">College</span>
+    </div>
+    <div class="ls-item" id="lsi-health">
+      <span class="ls-icon">🏥</span>
+      <span class="ls-num" id="ls-health">—</span>
+      <span class="ls-name">Health</span>
+    </div>
+    <div class="ls-item" id="lsi-teacher">
+      <span class="ls-icon">👩‍🏫</span>
+      <span class="ls-num" id="ls-teacher">—</span>
+      <span class="ls-name">Teachers</span>
+    </div>
+    <div class="ls-item" id="lsi-housing">
+      <span class="ls-icon">🏠</span>
+      <span class="ls-num" id="ls-housing">—</span>
+      <span class="ls-name">Housing</span>
+    </div>
+  </aside>
+
+  <script src="data.js"></script>
   <script src="main.js"></script>
+
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7ca12261a6ec4cbfbb8c34aa0e92fc4c"}'></script><!-- End Cloudflare Web Analytics -->
 
 </body>
 </html>
