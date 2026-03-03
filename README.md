@@ -59,14 +59,6 @@ The live counter ticks at **$2,315/second** (~$200M/day), the estimated active c
 - [ ] Interest on war-related emergency appropriations: no figure yet
 - [ ] **Israeli ground incursion into Lebanon** (March 3): new front; US support costs TBD
 
-### Chart improvements (r/dataisbeautiful feedback)
-- [ ] **Thicker line + better contrast** — `borderWidth: 2` is too thin when image is compressed; try 2.5–3
-- [ ] **Shaded bands instead of dotted verticals** for multi-day events (12-Day War, Op Rough Rider) — use `box` annotation type with low-opacity fill instead of stacked line annotations
-- [ ] **Inline labels need to be self-explanatory** — "2 CSGs", "H.R.8034" mean nothing to a general audience; expand label text or add a subtitle line
-- [ ] **Red dots** — add tooltip/legend clarifying what the data points represent
-- [ ] **Y-axis doesn't start at $0** — add a chart subtitle or note explaining why (cost started at $26.38B with H.R.8034, not from zero)
-- [ ] **Chart title** — add a standalone title: e.g. "US Direct Military Spending — Iran Conflict, April 2024–Present" so the chart reads without surrounding page context
-- [ ] **Use vertical space better** — chart feels sparse; tighten y-axis max or add a projected range band
 
 ### Alternatives section — time-scale alignment
 - [ ] **Scale comparisons to war duration, not 1 year** — the war has run ~2 years (Apr 2024–Mar 2026); "1 year of EPA budget" framing is misleading if comparing to a 2-year spend. Options:
