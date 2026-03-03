@@ -291,23 +291,49 @@ function init(data) {
   // ── CHART ANNOTATIONS (derived from data.json) ────────────────────────────
   const annotations = {};
   data.chart_annotations.forEach(a => {
-    annotations[a.key] = {
-      type: 'line',
-      xMin: a.date, xMax: a.date,
-      borderColor: a.color,
-      borderWidth: a.border_width || 1,
-      borderDash: a.border_width === 2 ? [] : [4, 3],
-      label: a.label ? {
-        display: true,
-        content: a.label,
-        position: 'end',
-        color: a.label_color,
-        font: { size: 11, weight: a.weight || 'normal' },
-        backgroundColor: 'rgba(10,10,10,0.9)',
-        yAdjust: a.y_adjust || 10,
-        xAdjust: a.x_adjust || 0,
-      } : { display: false }
+    const callout = {
+      display: true,
+      borderColor: a.label_color || a.color,
+      borderWidth: 1,
+      margin: 4,
     };
+    if (a.type === 'box') {
+      annotations[a.key] = {
+        type: 'box',
+        xMin: a.date_start, xMax: a.date_end,
+        backgroundColor: a.color,
+        borderColor: a.border_color || 'transparent',
+        borderWidth: 1,
+        label: a.label ? {
+          display: true,
+          content: a.label,
+          color: a.label_color,
+          font: { size: 11, weight: a.weight || 'normal' },
+          position: { x: 'center', y: 'end' },
+          yAdjust: a.y_adjust || 0,
+          callout,
+        } : { display: false }
+      };
+    } else {
+      annotations[a.key] = {
+        type: 'line',
+        xMin: a.date, xMax: a.date,
+        borderColor: a.color,
+        borderWidth: a.border_width || 1,
+        borderDash: [4, 3],
+        label: a.label ? {
+          display: true,
+          content: a.label,
+          position: 'start',
+          color: a.label_color,
+          font: { size: 11, weight: a.weight || 'normal' },
+          backgroundColor: 'rgba(10,10,10,0.9)',
+          yAdjust: a.y_adjust || 10,
+          xAdjust: a.x_adjust || 0,
+          callout,
+        } : { display: false }
+      };
+    }
   });
 
   // ── REAL-TIME COST TICKER ─────────────────────────────────────────────────
@@ -377,22 +403,22 @@ function init(data) {
         data: chartData,
         parsing: { xAxisKey: 'x', yAxisKey: 'y' },
         borderColor: '#cc0000',
-        borderWidth: 2,
+        borderWidth: 3,
         pointBackgroundColor: '#cc0000',
-        pointRadius: isMobile ? 3 : 4,
-        pointHoverRadius: 5,
+        pointRadius: isMobile ? 3 : 5,
+        pointHoverRadius: 6,
         fill: true,
         backgroundColor: gradient,
-        tension: 0.25,
+        tension: 0,
       }]
     },
     options: {
       responsive: true,
       maintainAspectRatio: true,
-      aspectRatio: isMobile ? 1.1 : 2,
+      aspectRatio: isMobile ? 1.1 : 1.2,
       interaction: { mode: 'index', intersect: false },
       layout: {
-        padding: { top: 16, right: isMobile ? 8 : 16, bottom: isMobile ? 8 : 24 },
+        padding: { top: 16, right: isMobile ? 8 : 24, bottom: isMobile ? 8 : 24 },
       },
       scales: {
         x: {
@@ -402,6 +428,8 @@ function init(data) {
           ticks: { color: '#8a8a8a', font: { size: 11 }, maxRotation: 0, maxTicksLimit: isMobile ? 6 : 12 },
         },
         y: {
+          min: 0,
+          suggestedMax: 50000000000,
           grid: { color: 'rgba(255,255,255,0.03)' },
           ticks: {
             color: '#8a8a8a',
@@ -418,6 +446,13 @@ function init(data) {
         }
       },
       plugins: {
+        title: {
+          display: true,
+          text: 'US Direct Military Spending — Iran Conflict, April 2024–Present',
+          color: '#e8e8e8',
+          font: { size: 18, family: 'Oswald, sans-serif', weight: 'normal' },
+          padding: { bottom: 12 },
+        },
         legend: { display: false },
         tooltip: {
           backgroundColor: '#111111',
@@ -429,7 +464,7 @@ function init(data) {
             label: ctx => ' $' + (ctx.parsed.y / 1e9).toFixed(2) + ' billion'
           }
         },
-        annotation: { annotations }
+        annotation: { clip: false, annotations }
       }
     }
   });

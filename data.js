@@ -139,6 +139,14 @@ const SITE_DATA = {
 
   "events": [
     {
+      "date": "2024-04-01",
+      "date_label": "April 1, 2024",
+      "cumul_label": null,
+      "class": null,
+      "title": null,
+      "chart_y": 0
+    },
+    {
       "date": "2024-04-20",
       "date_label": "April 20, 2024",
       "cumul_label": "TRACKER START",
@@ -194,7 +202,7 @@ const SITE_DATA = {
       "date": "2025-03-15",
       "date_label": "March–May 2025",
       "cumul_label": "~$27.5B–$29B",
-      "class": "notable",
+      "class": "support",
       "title": "Operation Rough Rider: US airstrikes on Houthi forces in Yemen",
       "desc": "Sustained US air campaign against Houthi infrastructure in Yemen. The Houthis, an Iranian-backed proxy, had disrupted global shipping since late 2023. Strikes used Tomahawk missiles (~$2M each), B-2 sorties, and carrier air wing operations.",
       "cost_note": "Est. cost: $1.5–2.5B · Iran-backed proxy operations",
@@ -208,7 +216,7 @@ const SITE_DATA = {
       "date": "2025-06-13",
       "date_label": "June 13–24, 2025",
       "cumul_label": "$29B to $34.5B",
-      "class": "major",
+      "class": "notable",
       "title": "Twelve-Day War: US depletes 14% of its THAAD stockpile",
       "desc": "Israel struck Iranian military and nuclear sites on June 13 (Operation Rising Lion); Iran retaliated with 550+ missiles and 1,000+ drones over 12 days. US forces expended ~92 THAAD interceptors at $12.7M each, 14% of the total US stockpile. Total US air defense costs reached $2.7–4.7B (JINSA, July 2025). Restocking is projected to take 3–8 years.",
       "cost_note": "THAAD alone: 92 x $12.7M = $1.17B · Total US air defense: $2.7–4.7B (JINSA)",
@@ -246,7 +254,7 @@ const SITE_DATA = {
       "date": "2025-09-01",
       "date_label": "September 27, 2025",
       "cumul_label": "~$36.5B",
-      "class": null,
+      "class": "support",
       "title": "UN Sanctions Snapback: Iran nuclear sanctions reimposed",
       "desc": "The UK, France, and Germany invoked the JCPOA snapback mechanism; UN sanctions were reimposed September 27. US military posture remained elevated with 2 carrier strike groups in the region at ~$13M/day.",
       "cost_note": "Theater baseline (pre-Epic Fury): $17–30M/day · 2 CSG ship ops: ~$13M/day",
@@ -269,7 +277,7 @@ const SITE_DATA = {
       "date": "2026-01-29",
       "date_label": "Late January 2026",
       "cumul_label": "~$40B",
-      "class": "notable",
+      "class": "support",
       "title": "Largest US Middle East naval buildup since 2003: 2 carrier strike groups repositioned",
       "desc": "Each CSG costs ~$6.5M/day in theater operations, ~$13M/day combined.",
       "cost_note": "2 CSG daily ship ops: ~$13M/day · Theater total (all forces): ~$40–80M/day",
@@ -325,66 +333,55 @@ const SITE_DATA = {
     {
       "key": "hr8034",
       "date": "2024-04-20",
-      "label": "H.R.8034",
+      "label": "$26.4B Israel aid package",
       "color": "rgba(255,209,102,0.5)",
       "label_color": "#ffd166",
       "weight": "normal",
-      "y_adjust": 10
+      "y_adjust": -15,
+      "x_adjust": 50
     },
     {
       "key": "roughRider",
-      "date": "2025-03-15",
-      "label": "Op. Rough Rider",
-      "color": "rgba(138,138,138,0.4)",
+      "type": "box",
+      "date_start": "2025-03-01",
+      "date_end": "2025-05-31",
+      "label": "US strikes on Yemen (Houthis)",
+      "color": "rgba(138,138,138,0.08)",
+      "border_color": "rgba(138,138,138,0.25)",
       "label_color": "#8a8a8a",
       "weight": "normal",
-      "y_adjust": 10
+      "y_adjust": -15
     },
     {
       "key": "war12day",
-      "date": "2025-06-13",
+      "type": "box",
+      "date_start": "2025-06-13",
+      "date_end": "2025-06-24",
       "label": "12-Day War",
-      "color": "rgba(255,209,102,0.5)",
+      "color": "rgba(255,209,102,0.10)",
+      "border_color": "rgba(255,209,102,0.35)",
       "label_color": "#ffd166",
       "weight": "normal",
-      "y_adjust": 10
-    },
-    {
-      "key": "midnightHammer",
-      "date": "2025-06-22",
-      "label": null,
-      "color": "rgba(255,209,102,0.6)",
-      "label_color": null,
-      "weight": "normal",
-      "y_adjust": 0
-    },
-    {
-      "key": "war12dayEnd",
-      "date": "2025-06-24",
-      "label": null,
-      "color": "rgba(255,209,102,0.3)",
-      "label_color": null,
-      "weight": "normal",
-      "y_adjust": 0
+      "y_adjust": -45
     },
     {
       "key": "jan26",
       "date": "2026-01-29",
-      "label": "2 CSGs",
+      "label": "2 carrier strike groups deployed",
       "color": "rgba(138,138,138,0.4)",
       "label_color": "#8a8a8a",
       "weight": "normal",
-      "y_adjust": 10
+      "y_adjust": -15,
+      "x_adjust": -70
     },
     {
       "key": "epicFury",
       "date": "2026-02-28",
-      "label": "Op. Epic Fury",
-      "color": "rgba(204,0,0,0.9)",
+      "label": "Op. Epic Fury Start",
+      "color": "rgba(204,0,0,0.5)",
       "label_color": "#cc0000",
       "weight": "bold",
-      "border_width": 2,
-      "y_adjust": 30,
+      "y_adjust": -55,
       "x_adjust": -55
     }
   ]

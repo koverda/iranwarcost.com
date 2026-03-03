@@ -442,7 +442,46 @@ nav {
   position: relative;
 }
 
-.chart-container canvas { max-height: 360px; min-height: 200px; }
+.chart-container canvas { max-height: 500px; min-height: 200px; }
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  padding: 0.6rem 0.25rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 0.5rem;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-family: 'Space Mono', monospace;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+.chart-legend-line {
+  display: inline-block;
+  width: 18px;
+  height: 0;
+  border-top-width: 2px;
+  border-top-style: solid;
+  flex-shrink: 0;
+}
+
+.chart-legend-line--dashed { border-top-style: dashed; }
+.chart-legend-line--solid  { border-top-style: solid; }
+
+.chart-legend-box {
+  display: inline-block;
+  width: 14px;
+  height: 10px;
+  border: 1px solid;
+  flex-shrink: 0;
+}
 
 /* ── EVENTS TIMELINE LIST ── */
 .events-list {
@@ -467,8 +506,9 @@ nav {
   border: 2px solid var(--bg);
 }
 
-.event-item.major::before  { background: var(--red); }
+.event-item.major::before   { background: var(--red); }
 .event-item.notable::before { background: var(--gold); }
+.event-item.support::before { background: #8a8a8a; }
 
 .event-date {
   font-family: 'Space Mono', monospace;
