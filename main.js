@@ -336,6 +336,33 @@ function init(data) {
     }
   });
 
+  // ── POINT LABELS (from chart_label fields on events) ─────────────────────
+  const pointLabelKeys = [];
+  data.events.forEach((e, i) => {
+    if (!e.chart_label || e.chart_y === null || e.chart_y === undefined) return;
+    const key = 'ptLabel_' + i;
+    pointLabelKeys.push(key);
+    annotations[key] = {
+      type: 'label',
+      xValue: e.date,
+      yValue: e.chart_y,
+      content: e.chart_label,
+      color: '#e8e8e8',
+      font: { size: 10, family: 'Space Mono, monospace' },
+      backgroundColor: 'rgba(10,10,10,0.85)',
+      padding: { top: 2, bottom: 2, left: 4, right: 4 },
+      xAdjust: e.chart_label_x || 0,
+      yAdjust: e.chart_label_y || -18,
+      callout: (e.chart_label_x || e.chart_label_y) ? {
+        display: true,
+        borderColor: 'rgba(138,138,138,0.5)',
+        borderWidth: 1,
+        margin: 4,
+      } : { display: false },
+      display: false,
+    };
+  });
+
   // ── REAL-TIME COST TICKER ─────────────────────────────────────────────────
   const PAGE_LOAD_COST = getCurrentCost();
 
@@ -388,14 +415,31 @@ function init(data) {
   const isMobile = window.innerWidth < 640;
 
   if (isMobile) {
-    Object.values(annotations).forEach(a => { a.label.display = false; });
+    Object.values(annotations).forEach(a => {
+      if (a.label) a.label.display = false;
+      else if (a.type === 'label') a.display = false;
+    });
   }
 
   const gradient = ctx.createLinearGradient(0, 0, 0, 360);
   gradient.addColorStop(0, 'rgba(204,0,0,0.30)');
   gradient.addColorStop(1, 'rgba(204,0,0,0.01)');
 
-  new Chart(ctx, {
+  const watermarkPlugin = {
+    id: 'watermark',
+    afterDraw(chart) {
+      const { ctx: c, chartArea: { right, top } } = chart;
+      c.save();
+      c.font = '12px Oswald, sans-serif';
+      c.fillStyle = 'rgba(138,138,138,0.33)';
+      c.textAlign = 'right';
+      c.textBaseline = 'top';
+      c.fillText('IRANWARCOST.COM', right - 4, top + 4);
+      c.restore();
+    }
+  };
+
+  const chart = new Chart(ctx, {
     type: 'line',
     data: {
       datasets: [{
@@ -466,8 +510,21 @@ function init(data) {
         },
         annotation: { clip: false, annotations }
       }
-    }
+    },
+    plugins: [watermarkPlugin]
   });
+
+  // ── CHART LABEL TOGGLE ───────────────────────────────────────────────────
+  const labelToggle = document.getElementById('chart-label-toggle');
+  if (labelToggle) {
+    labelToggle.addEventListener('change', () => {
+      const show = labelToggle.checked;
+      pointLabelKeys.forEach(key => {
+        chart.options.plugins.annotation.annotations[key].display = show;
+      });
+      chart.update('none');
+    });
+  }
 
   // ── METHODOLOGY TABLE (rendered from data.json) ───────────────────────────
   const costTable = document.getElementById('cost-breakdown-tbody');

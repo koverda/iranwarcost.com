@@ -483,6 +483,22 @@ nav {
   flex-shrink: 0;
 }
 
+.chart-legend-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-family: 'Space Mono', monospace;
+  color: var(--muted);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.chart-legend-toggle input {
+  accent-color: var(--red);
+  cursor: pointer;
+}
+
 /* ── EVENTS TIMELINE LIST ── */
 .events-list {
   margin-top: 2.5rem;

@@ -159,7 +159,8 @@ const SITE_DATA = {
         { "label": "CBO Cost Estimate", "url": "https://www.cbo.gov/publication/60221" },
         { "label": "PBS Breakdown", "url": "https://www.pbs.org/newshour/politics/a-breakdown-of-whats-in-the-95-billion-foreign-aid-package-passed-by-the-house" }
       ],
-      "chart_y": 26380000000
+      "chart_y": 26380000000,
+      "chart_label": "H.R.8034"
     },
     {
       "date": "2024-10-01",
@@ -174,7 +175,8 @@ const SITE_DATA = {
         { "label": "NPR", "url": "https://www.npr.org/2024/10/01/g-s1-25707/iran-israel-hezbollah-lebanon-attack" },
         { "label": "Al Jazeera", "url": "https://www.aljazeera.com/news/2024/10/1/irans-missile-attack-against-israel-what-we-know-and-what-comes-next" }
       ],
-      "chart_y": 26630000000
+      "chart_y": 26630000000,
+      "chart_label": "True Promise II"
     },
     {
       "date": "2025-01-01",
@@ -182,7 +184,8 @@ const SITE_DATA = {
       "cumul_label": null,
       "class": null,
       "title": null,
-      "chart_y": 27000000000
+      "chart_y": 27000000000,
+      "chart_label": "Theater ops"
     },
     {
       "date": "2025-03-15",
@@ -196,7 +199,8 @@ const SITE_DATA = {
         { "label": "Congress.gov H.R.1968", "url": "https://www.congress.gov/bill/119th-congress/house-bill/1968/text" },
         { "label": "CRS Report RL33222", "url": "https://www.congress.gov/crs-product/RL33222" }
       ],
-      "chart_y": 27500000000
+      "chart_y": 27500000000,
+      "chart_label": "FY2025 FMF"
     },
     {
       "date": "2025-03-15",
@@ -225,7 +229,8 @@ const SITE_DATA = {
         { "label": "JINSA Insights", "url": "https://jinsa.org/jinsa_report/insights-from-12-day-war/" },
         { "label": "JINSA Cost Report (PDF)", "url": "https://jinsa.org/wp-content/uploads/2025/07/Cost-Estimates-During-the-U.S.-Israel-Iran-War-07-21-25.pdf" }
       ],
-      "chart_y": 29000000000
+      "chart_y": 29000000000,
+      "chart_label": "12-Day War begins"
     },
     {
       "date": "2025-06-22",
@@ -248,7 +253,8 @@ const SITE_DATA = {
       "cumul_label": null,
       "class": null,
       "title": null,
-      "chart_y": 34500000000
+      "chart_y": 34500000000,
+      "chart_label": "Post 12-Day War"
     },
     {
       "date": "2025-09-01",
@@ -263,7 +269,8 @@ const SITE_DATA = {
         { "label": "EU Council", "url": "https://www.consilium.europa.eu/en/press/press-releases/2025/09/29/iran-sanctions-snapback-council-reimposes-restrictive-measures/" },
         { "label": "Wikipedia: Snapback", "url": "https://en.wikipedia.org/wiki/Snapback_mechanism_of_sanctions_against_Iran" }
       ],
-      "chart_y": 36500000000
+      "chart_y": 36500000000,
+      "chart_label": "Sanctions snapback"
     },
     {
       "date": "2025-12-01",
@@ -271,7 +278,10 @@ const SITE_DATA = {
       "cumul_label": null,
       "class": null,
       "title": null,
-      "chart_y": 39000000000
+      "chart_y": 39000000000,
+      "chart_label_x": -90,
+      "chart_label_callout": true,
+      "chart_label": "Theater presence"
     },
     {
       "date": "2026-01-29",
@@ -284,7 +294,10 @@ const SITE_DATA = {
       "sources": [
         { "label": "USNI News", "url": "https://news.usni.org" }
       ],
-      "chart_y": 40000000000
+      "chart_y": 40000000000,
+      "chart_label": "2 CSGs deployed",
+      "chart_label_x": -60,
+      "chart_label_callout": true
     },
     {
       "date": "2026-02-28",
@@ -298,7 +311,11 @@ const SITE_DATA = {
       "sources": [
         { "label": "USNI News", "url": "https://news.usni.org" }
       ],
-      "chart_y": 41200000000
+      "chart_y": 41200000000,
+      "chart_label": "Op. Epic Fury",
+      "chart_label_x": -60,
+      "chart_label_y": 30,
+      "chart_label_callout": true
     },
     {
       "date": "2026-03-01",
@@ -325,7 +342,10 @@ const SITE_DATA = {
         { "label": "F-15E Wikipedia", "url": "https://en.wikipedia.org/wiki/McDonnell_Douglas_F-15E_Strike_Eagle" },
         { "label": "F-15EX Cost", "url": "https://www.airandspaceforces.com/new-acquisition-report-f-15ex-unit-cost/" }
       ],
-      "chart_y": 43000000000
+      "chart_y": 43000000000,
+      "chart_label": "$43B (Mar 2)",
+      "chart_label_x": -50,
+      "chart_label_callout": true
     }
   ],
 
