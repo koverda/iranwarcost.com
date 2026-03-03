@@ -1096,8 +1096,11 @@ footer a { color: var(--muted); text-decoration: underline; }
   }
 }
 
+.chart-legend-toggle { display: none; }
+
 /* ── RESPONSIVE: TABLET ── */
 @media (min-width: 640px) {
+  .chart-legend-toggle { display: flex; }
   .section-inner { padding: 4rem 1.5rem; }
   .comparison-grid { grid-template-columns: 1fr 1fr; }
   .compare-row {
