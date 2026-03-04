@@ -522,6 +522,7 @@ nav {
 .event-item {
   position: relative;
   padding-bottom: 2rem;
+  scroll-margin-top: 70px;
 }
 
 .event-item::before {
