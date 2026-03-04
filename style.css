@@ -235,6 +235,7 @@ nav {
 }
 
 .burn-rate-item {
+  flex: 1;
   padding: 0.7rem 1.2rem;
   text-align: center;
   border-right: 2px solid var(--border);
@@ -1109,8 +1110,13 @@ footer a { color: var(--muted); text-decoration: underline; }
 
 .chart-legend-toggle { display: none; }
 
+.mobile-show { display: inline; }
+.mobile-hide { display: none; }
+
 /* ── RESPONSIVE: TABLET ── */
 @media (min-width: 640px) {
+  .mobile-show { display: none; }
+  .mobile-hide { display: inline; }
   .chart-legend-toggle { display: flex; }
   .section-inner { padding: 4rem 1.5rem; }
   .comparison-grid { grid-template-columns: 1fr 1fr; }
