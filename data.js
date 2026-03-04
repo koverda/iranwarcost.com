@@ -1,7 +1,7 @@
 const SITE_DATA = {
   "meta": {
-    "anchor_date": "2026-03-02T00:00:00Z",
-    "anchor_amount": 43000000000,
+    "anchor_date": "2026-03-04T00:00:00Z",
+    "anchor_amount": 44900000000,
     "burn_rate_halflife_days": 30,
     "us_taxpayers": 150000000,
     "tracker_start": "2024-04-20",
@@ -62,6 +62,12 @@ const SITE_DATA = {
       "source": "Published unit costs, DoD statements",
       "estimate_usd": 4300000000,
       "estimate_label": "~$4.3B"
+    },
+    {
+      "component": "US equipment destroyed by Iranian retaliatory strikes: AN/FPS-132, AN/TPY-2 radars, SATCOM (Feb 28–Mar 4)",
+      "source": "NYT satellite imagery, TRT World, Defence Security Asia",
+      "estimate_usd": 1900000000,
+      "estimate_label": "~$1.9B"
     }
   ],
 
@@ -323,10 +329,14 @@ const SITE_DATA = {
       "cumul_label": "~$42B",
       "class": "major",
       "open": true,
-      "title": "4th US service member killed; operations continue",
-      "desc": "A 4th US service member was killed. Strikes continued against Iranian military and IRGC targets.",
+      "title": "6 US service members killed by Iranian drone strike in Kuwait",
+      "desc": "Six Army Reservists from the 103rd Sustainment Command (Des Moines, Iowa) were killed by an Iranian drone strike on Port Shuaiba, Kuwait. 18 additional service members were wounded. Strikes continued against Iranian military and IRGC targets.",
       "cost_note": "2-day operational cost estimate: $2–4B cumulative",
-      "sources": [],
+      "sources": [
+        { "label": "CBS News", "url": "https://www.cbsnews.com/live-updates/iran-us-war-day-3-american-deaths-israel-gulf-allies-hit-missile-strikes/" },
+        { "label": "NPR", "url": "https://www.npr.org/2026/03/02/g-s1-112151/iran-war-widens-threatens-to-engulf-lebanon" },
+        { "label": "CNN", "url": "https://www.cnn.com/2026/03/02/politics/six-soldiers-killed-in-iranian-strike-kuwait" }
+      ],
       "chart_y": null
     },
     {
@@ -345,6 +355,26 @@ const SITE_DATA = {
       "chart_y": 43000000000,
       "chart_label": "$43B (Mar 2)",
       "chart_label_x": -50,
+      "chart_label_callout": true
+    },
+    {
+      "date": "2026-03-03",
+      "date_label": "March 3–4, 2026",
+      "cumul_label": "~$44.9B",
+      "class": "notable",
+      "open": true,
+      "title": "Satellite imagery confirms Iran destroyed ~$1.9B in US radar/air defense infrastructure across 5 Gulf states",
+      "desc": "NYT satellite imagery confirmed Iranian strikes systematically destroyed US radar and communication systems across bases in Qatar, UAE, Kuwait, Bahrain, and Saudi Arabia. The AN/FPS-132 early warning radar at Al Udeid (~$1.1B) — the nerve center of US missile defense coordination — was hit by a single missile. Two AN/TPY-2 THAAD radars were destroyed in the UAE and Jordan. SATCOM terminals and radomes were cracked open across multiple installations. Iran mapped the communication layer that makes US missile defense function as a unified system, then dismantled it base by base.",
+      "cost_note": "AN/FPS-132: ~$1.1B · 2× AN/TPY-2: ~$500M each · SATCOM/radomes: additional · Total equipment losses: ~$1.9B",
+      "sources": [
+        { "label": "Defence Security Asia", "url": "https://defencesecurityasia.com/en/iran-missile-strikes-destroy-us-satcom-an-tpy2-radar-gulf-bases-satellite-images/" },
+        { "label": "TRT World", "url": "https://www.trtworld.com/article/35eac28b7995" },
+        { "label": "Stars and Stripes", "url": "https://www.stripes.com/theaters/middle_east/2026-03-04/air-base-qatar-missile-20946551.html" },
+        { "label": "Army Recognition", "url": "https://www.armyrecognition.com/news/army-news/2026/iran-claims-destruction-of-an-fps-132-radar-in-qatar-used-for-u-s-missile-warning" }
+      ],
+      "chart_y": 44900000000,
+      "chart_label": "$44.9B (Mar 4)",
+      "chart_label_x": -60,
       "chart_label_callout": true
     }
   ],
