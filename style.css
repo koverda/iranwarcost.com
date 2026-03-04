@@ -223,6 +223,17 @@ nav {
   border: 2px solid var(--border);
 }
 
+.burn-rates-label {
+  width: 100%;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  padding: 0.6rem 0 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
 .burn-rate-item {
   padding: 0.7rem 1.2rem;
   text-align: center;

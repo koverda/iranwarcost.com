@@ -73,9 +73,11 @@ function init(data) {
   (function initStaticText() {
     const anchorB     = (ANCHOR_AMOUNT / 1e9).toFixed(0);
     const taxpayersM  = (US_TAXPAYERS / 1e6).toFixed(0);
-    const dailyM      = (DAILY_BURN / 1e6).toFixed(0);
-    const hourlyM     = (DAILY_BURN / 24 / 1e6).toFixed(1);
-    const perSec      = Math.round(DOLLARS_PER_SEC).toLocaleString('en-US');
+    const fmtRate = (val) => val >= 1e9 ? `${(val / 1e9).toFixed(1)}B` : `${(val / 1e6).toFixed(0)}M`;
+    const fmtSmall = (val) => val >= 1000 ? `${(val / 1000).toFixed(1)}K` : Math.round(val).toLocaleString('en-US');
+    const dailyFmt    = fmtRate(DAILY_BURN);
+    const hourlyFmt   = fmtRate(DAILY_BURN / 24);
+    const perSec      = fmtSmall(DOLLARS_PER_SEC);
     const perTxTotal  = Math.round(ANCHOR_AMOUNT / US_TAXPAYERS);
     const anchorDateStr = ANCHOR_DATE.toLocaleDateString('en-US', {
       year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'
@@ -85,8 +87,8 @@ function init(data) {
     const setH = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML   = html; };
 
     set('counter-label',        `Total Cost Since ${data.meta.tracker_start_label}`);
-    set('burn-daily',           `~$${dailyM}M`);
-    set('burn-hourly',          `~$${hourlyM}M`);
+    set('burn-daily',           `~$${dailyFmt}`);
+    set('burn-hourly',          `~$${hourlyFmt}`);
     set('burn-second',          `~$${perSec}`);
     set('th-label',             `Per US Taxpayer: Total Since ${data.meta.tracker_start_label}`);
     setH('th-sub',              `Live &bull; ${taxpayersM}M US taxpayers`);
@@ -95,7 +97,7 @@ function init(data) {
     set('alt-title',            `What $${anchorB} Billion Could Have Funded Instead`);
     set('realtime-rate',        `$${perSec}`);
     set('methodology-heading',  `$${anchorB}B cost breakdown (since ${data.meta.tracker_start_label}):`);
-    set('methodology-counter',  `Anchored at $${anchorB}B on ${anchorDateStr} (UTC midnight), incrementing at $${perSec}/second (~$${dailyM}M/day), reflecting the active operations rate since Epic Fury began February 28.`);
+    set('methodology-counter',  `Anchored at $${anchorB}B on ${anchorDateStr} (UTC midnight), incrementing at $${perSec}/second (~$${dailyFmt}/day), reflecting the active operations rate since Epic Fury began February 28.`);
     set('footer-anchor',        `Data anchored: ${anchorDateStr} · All figures are estimates from publicly available data`);
 
     // Hero subtitle — uses tracker start label and first cost_breakdown item
@@ -140,7 +142,7 @@ function init(data) {
           `<thead><tr><th>Interval</th><th>Rate/day</th><th>Weight</th></tr></thead>` +
           `<tbody>${rows}</tbody>` +
         `</table>` +
-        `<p>Result: <strong style="color:var(--text)">~$${dailyM}M/day</strong>, weighted toward the most recent period. <a class="burn-tooltip-link" href="#sources">Full methodology →</a></p>`;
+        `<p>Result: <strong style="color:var(--text)">~$${dailyFmt}/day</strong>, weighted toward the most recent period. <a class="burn-tooltip-link" href="#sources">Full methodology →</a></p>`;
 
       infoBtn.addEventListener('click', e => {
         e.stopPropagation();
@@ -269,7 +271,8 @@ function init(data) {
         : '';
       const openAttr = ev.open ? ' open' : '';
       const classAttr = ev.class ? ` ${ev.class}` : '';
-      return `<div class="event-item${classAttr}">
+      const slug = 'event-' + ev.date;
+      return `<div id="${slug}" class="event-item${classAttr}">
   <div class="event-date">${ev.date_label}${ev.cumul_label ? ` <span class="event-cumul">${ev.cumul_label}</span>` : ''}</div>
   <details class="event-details"${openAttr}>
     <summary class="event-title">${ev.title}</summary>
