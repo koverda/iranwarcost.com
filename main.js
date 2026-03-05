@@ -101,8 +101,8 @@ function init(data) {
     set('footer-anchor',        `Data anchored: ${anchorDateStr} · All figures are estimates from publicly available data`);
 
     // Hero subtitle — uses tracker start label and first cost_breakdown item
-    const hr8034Label = data.cost_breakdown[0].estimate_label; // "$26.38B"
-    set('hero-subtitle', `Estimated US military spending since ${data.meta.tracker_start_label}, the day Congress passed ${hr8034Label} in emergency security assistance for Israel. Operations, weapons, air defense, and military aid. All figures sourced.`);
+    const hr8034Label = data.cost_breakdown[0].estimate_label;
+    set('hero-subtitle', `Estimated US military spending since ${data.meta.tracker_start_label}, the day Congress passed H.R.8034 (${hr8034Label} in military provisions for Israel). Operations, weapons, air defense, and military aid — humanitarian spending excluded. All figures sourced.`);
 
     // Twitter share link
     const tweetText = encodeURIComponent(`The US war with Iran has cost $${anchorB}B since ${data.meta.tracker_start_label} — and counting. $${perTxTotal} per taxpayer.`);
@@ -111,7 +111,7 @@ function init(data) {
 
     // Methodology intro paragraph
     const mIntro = document.getElementById('methodology-intro');
-    if (mIntro) mIntro.innerHTML = `The tracker starts on <strong>${data.meta.tracker_start_label}</strong> — when President Biden signed H.R.8034, committing ${hr8034Label} in emergency Israel security assistance. All subsequent appropriations, operations, and expenditures are counted from that date.`;
+    if (mIntro) mIntro.innerHTML = `The tracker starts on <strong>${data.meta.tracker_start_label}</strong> — when President Biden signed H.R.8034. The full bill appropriated $26.38B, of which ${hr8034Label} was military (FMF, missile defense, CENTCOM ops, ammunition). The remaining $9.15B in humanitarian aid for Gaza is excluded. This tracker counts only military spending: appropriations, operations, air defense, and equipment losses.`;
 
     // Burn rate tooltip
     const tooltipEl = document.getElementById('burn-tooltip');
