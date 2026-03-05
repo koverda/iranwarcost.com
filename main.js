@@ -486,7 +486,7 @@ function init(data) {
           },
           title: {
             display: !isMobile,
-            text: 'Cumulative Spending (USD)',
+            text: 'Est. Cumulative Spending (USD)',
             color: '#8a8a8a',
             font: { size: 11 },
           }
@@ -498,6 +498,13 @@ function init(data) {
           text: 'US Direct Military Spending — Iran Conflict, April 2024–Present',
           color: '#e8e8e8',
           font: { size: 18, family: 'Oswald, sans-serif', weight: 'normal' },
+          padding: { bottom: 4 },
+        },
+        subtitle: {
+          display: true,
+          text: 'Estimated figures — sources cited below',
+          color: '#8a8a8a',
+          font: { size: 12, family: 'Oswald, sans-serif', weight: 'normal' },
           padding: { bottom: 12 },
         },
         legend: { display: false },
