@@ -219,7 +219,7 @@ function init(data) {
   updateTaxpayerSection();
   setInterval(updateTaxpayerSection, 1000);
 
-  // ── ALTERNATIVES SECTION (rendered from data.json) ────────────────────────
+  // ── ALTERNATIVES SECTION (rendered from data.js) ─────────────────────────
   const altGrid = document.getElementById('alternatives-grid');
   if (altGrid) {
     altGrid.innerHTML = data.alternatives.map(alt => {
@@ -256,7 +256,7 @@ function init(data) {
     });
   };
 
-  // ── EVENTS LIST (rendered from data.json) ─────────────────────────────────
+  // ── EVENTS LIST (rendered from data.js) ──────────────────────────────────
   const eventsList = document.getElementById('events-list');
   if (eventsList) {
     const visibleEvents = data.events.filter(e => e.title);
@@ -286,12 +286,12 @@ function init(data) {
     }).join('\n');
   }
 
-  // ── CHART DATA (derived from data.json) ───────────────────────────────────
+  // ── CHART DATA (derived from data.js) ────────────────────────────────────
   const chartData = data.events
     .filter(e => e.chart_y !== null && e.chart_y !== undefined)
     .map(e => ({ x: e.date, y: e.chart_y }));
 
-  // ── CHART ANNOTATIONS (derived from data.json) ────────────────────────────
+  // ── CHART ANNOTATIONS (derived from data.js) ─────────────────────────────
   const annotations = {};
   data.chart_annotations.forEach(a => {
     const callout = {
@@ -536,7 +536,7 @@ function init(data) {
     });
   }
 
-  // ── METHODOLOGY TABLE (rendered from data.json) ───────────────────────────
+  // ── METHODOLOGY TABLE (rendered from data.js) ────────────────────────────
   const costTable = document.getElementById('cost-breakdown-tbody');
   if (costTable) {
     const rows = data.cost_breakdown.map(item =>
